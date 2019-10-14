@@ -46,6 +46,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A3CE66023552591006D54FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A3CE661235525A9006D54FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4A3CE662235525B8006D54FB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4A51086623551A6B009B70E7 /* FirstViewController.swift */,
+				4A51086823551A6B009B70E7 /* SecondViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		4A51085623551A6B009B70E7 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +90,11 @@
 		4A51086123551A6B009B70E7 /* bigbowl-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4A3CE662235525B8006D54FB /* ViewController */,
+				4A3CE661235525A9006D54FB /* ViewModel */,
+				4A3CE66023552591006D54FB /* Model */,
 				4A51086223551A6B009B70E7 /* AppDelegate.swift */,
 				4A51086423551A6B009B70E7 /* SceneDelegate.swift */,
-				4A51086623551A6B009B70E7 /* FirstViewController.swift */,
-				4A51086823551A6B009B70E7 /* SecondViewController.swift */,
 				4A51086A23551A6B009B70E7 /* Main.storyboard */,
 				4A51086D23551A6D009B70E7 /* Assets.xcassets */,
 				4A51086F23551A6D009B70E7 /* LaunchScreen.storyboard */,
