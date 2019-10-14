@@ -8,7 +8,7 @@ Then, clone the project, using Xcode or using terminal
   ``` 
   git clone https://github.com/bigbowl-sem/bigbowl-iOS.git
   ```
-In your terminal, run the follow command in the root directory (/bigbowl-sem)
+In your terminal, run the follow command in the root directory (/bigbowl-iOS)
 
 ```
 pod install
