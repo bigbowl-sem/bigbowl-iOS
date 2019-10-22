@@ -19,3 +19,6 @@ When launching in Xcode, OPEN bigbowl-iOS.xcworkspace <b>(NOT bigbowl-iOS.xcodep
 
 Cocoapods is a dependency manager, and we use it to make use of the Stripe SDK
 
+# Help
+
+Good [resource](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/ImplementNavigation.html)

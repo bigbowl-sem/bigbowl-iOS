@@ -9,16 +9,20 @@
 import UIKit
 import Stripe
 
-class SecondViewController: UIViewController {
+class SecondViewController:  UIViewController {
     
-    Stripe.setDefaultPublishableKey("pk_test_6F20HBly8SsRgexvz67pwAjq00wjM1KJpM")
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Stripe.setDefaultPublishableKey("pk_test_6F20HBly8SsRgexvz67pwAjq00wjM1KJpM")
+
     }
     
+    @IBAction func payTapped(_ sender: Any) {
 
-
+    
+    }
+    
+   
 }
 
