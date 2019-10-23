@@ -10,5 +10,6 @@ target 'bigbowl-iOS' do
   # Pods for bigbowl-iOS
   pod 'Stripe'
   pod 'Alamofire'
+  pod 'PullUpController'
 
 end
