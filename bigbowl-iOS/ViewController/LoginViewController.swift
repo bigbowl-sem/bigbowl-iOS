@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func eaterLogin(_ sender: Any) {
         print("eater")
+//        self.navigationController?.pushViewController(FirstViewController(), animated: true)
         let storyboard = UIStoryboard(name: "Eater", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! UIViewController
         vc.modalPresentationStyle = .fullScreen

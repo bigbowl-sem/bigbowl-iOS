@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lAw-20-dfv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sQ2-LY-dZj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -15,38 +15,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cae-2J-BgM">
-                                <rect key="frame" x="157" y="295" width="101" height="30"/>
-                                <state key="normal" title="Log in as Eater"/>
-                                <connections>
-                                    <action selector="eaterLogin:" destination="lAw-20-dfv" eventType="touchUpInside" id="LOK-7c-hvQ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbT-6X-Ewy">
                                 <rect key="frame" x="157" y="504" width="101" height="30"/>
                                 <state key="normal" title="Log in as Cook"/>
                                 <connections>
-                                    <action selector="cookLogin:" destination="lAw-20-dfv" eventType="touchUpInside" id="e7c-aS-4U9"/>
+                                    <action selector="cookLogin:" destination="lAw-20-dfv" eventType="touchUpInside" id="4TR-oy-LtA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSf-nV-bFR">
+                                <rect key="frame" x="142" y="305" width="97" height="30"/>
+                                <state key="normal" title="Login as Eater"/>
+                                <connections>
+                                    <action selector="eaterLogin:" destination="lAw-20-dfv" eventType="touchUpInside" id="nUl-aI-1VT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="JbT-6X-Ewy" firstAttribute="leading" secondItem="rlf-2V-iF8" secondAttribute="leading" constant="157" id="6ag-dr-0aH"/>
+                            <constraint firstItem="FSf-nV-bFR" firstAttribute="top" secondItem="rlf-2V-iF8" secondAttribute="top" constant="217" id="6zl-cV-yOJ"/>
                             <constraint firstItem="rlf-2V-iF8" firstAttribute="bottom" secondItem="JbT-6X-Ewy" secondAttribute="bottom" constant="328" id="8XB-Es-web"/>
-                            <constraint firstItem="JbT-6X-Ewy" firstAttribute="top" secondItem="cae-2J-BgM" secondAttribute="bottom" constant="179" id="9GK-VR-Dup"/>
-                            <constraint firstItem="JbT-6X-Ewy" firstAttribute="top" secondItem="cae-2J-BgM" secondAttribute="bottom" constant="179" id="9UT-ZF-0CI"/>
-                            <constraint firstItem="rlf-2V-iF8" firstAttribute="trailing" secondItem="cae-2J-BgM" secondAttribute="trailing" constant="156" id="9lo-hp-22E"/>
                             <constraint firstItem="rlf-2V-iF8" firstAttribute="trailing" secondItem="JbT-6X-Ewy" secondAttribute="trailing" constant="156" id="AR6-c6-bOt"/>
-                            <constraint firstItem="cae-2J-BgM" firstAttribute="leading" secondItem="rlf-2V-iF8" secondAttribute="leading" constant="157" id="YUU-GG-Ses"/>
-                            <constraint firstItem="cae-2J-BgM" firstAttribute="top" secondItem="rlf-2V-iF8" secondAttribute="top" constant="251" id="mXJ-Ef-Mcf"/>
+                            <constraint firstItem="JbT-6X-Ewy" firstAttribute="top" secondItem="FSf-nV-bFR" secondAttribute="bottom" constant="169" id="KFA-sC-BxW"/>
+                            <constraint firstItem="FSf-nV-bFR" firstAttribute="leading" secondItem="rlf-2V-iF8" secondAttribute="leading" constant="142" id="uh2-tj-dG4"/>
+                            <constraint firstItem="rlf-2V-iF8" firstAttribute="trailing" secondItem="FSf-nV-bFR" secondAttribute="trailing" constant="175" id="xGR-LR-phN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rlf-2V-iF8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Mub-oJ-6ve"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V6-gv-vg7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1157" y="404"/>
+            <point key="canvasLocation" x="-247.82608695652175" y="403.79464285714283"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e2j-nW-LMU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sQ2-LY-dZj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hIu-b8-8LY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lAw-20-dfv" kind="relationship" relationship="rootViewController" id="uRf-kx-210"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uaC-36-fVQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1157.9710144927537" y="403.79464285714283"/>
         </scene>
     </scenes>
 </document>

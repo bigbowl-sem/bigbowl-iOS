@@ -7,26 +7,46 @@
 //
 
 import Foundation
-import SwiftUI
+import UIKit
 import PullUpController
+
+
+class FoodDetailCell: UITableViewCell {
+    
+    @IBOutlet weak var foodImage: UIImageView!
+    @IBOutlet weak var meal: UILabel!
+    @IBOutlet weak var cook: UILabel!
+    @IBOutlet weak var stars: UILabel!
+    @IBOutlet weak var price: UILabel!
+}
 
 class FoodListViewController: PullUpController {
     
     enum InitialState {
          case contracted
          case expanded
-     }
+         case zero
+    }
+    
+    var items: [String] = [
+       "yo", "🐱", "🐔", "🐶", "🦊", "🐵", "🐼", "🐷", "💩", "🐰",
+       "🤖", "🦄", "🐻", "🐲", "🦁", "💀", "🐨", "🐯", "👻", "🦖",
+    ]
      
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bodyView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     var initialState: InitialState = .contracted
     
     
     var initialPointOffset: CGFloat {
         switch initialState {
+        case .zero:
+            return 0
         case .contracted:
-            return 100
+            return 220
         case .expanded:
             return pullUpControllerPreferredSize.height
         }
@@ -41,8 +61,15 @@ class FoodListViewController: PullUpController {
         super.viewDidLoad()
         
         portraitSize = CGSize(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height),
-                              height: bodyView.frame.maxY)
+                              height: bodyView.frame.maxY - 200)
         landscapeFrame = CGRect(x: 5, y: 50, width: 280, height: 300)
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
+    override func loadView() {
+        super.loadView()
         
     }
 
@@ -76,6 +103,8 @@ class FoodListViewController: PullUpController {
     
     override var pullUpControllerMiddleStickyPoints: [CGFloat] {
         switch initialState {
+        case .zero:
+            return [0]
         case .contracted:
             return [topView.frame.maxY]
         case .expanded:
@@ -84,7 +113,7 @@ class FoodListViewController: PullUpController {
     }
     
     override var pullUpControllerBounceOffset: CGFloat {
-        return 20
+        return 1
     }
         
     override func pullUpControllerAnimate(action: PullUpController.Action,
@@ -107,4 +136,32 @@ class FoodListViewController: PullUpController {
         }
     }
 
+}
+
+extension FoodListViewController: UITableViewDataSource {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 3
+        }
+
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodDetailCell", for: indexPath) as! FoodDetailCell
+            
+            // let item = self.items[indexPath.item]
+            cell.cook?.text = "Brad Pitt"
+            cell.price?.text = "$5.99"
+
+            cell.meal?.text = "Pad thai"
+            cell.stars?.text = "5/5 rating"
+    //        cell.foodImage?.image = UIImage(named: "flame")
+            return cell
+        }
+}
+
+extension FoodListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hello")
+        if let viewController = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
