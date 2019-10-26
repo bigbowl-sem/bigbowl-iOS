@@ -13,7 +13,7 @@ struct SecretKey: Codable{
        var secretKey: String
 }
 
-class CheckoutViewController: UIViewController, STPAddCardViewControllerDelegate {
+/*class CheckoutViewController: UIViewController, STPAddCardViewControllerDelegate {
 
     
     @IBOutlet weak var msgLabel: UILabel!
@@ -84,4 +84,4 @@ extension CheckoutViewController: STPAuthenticationContext {
     func authenticationPresentingViewController() -> UIViewController {
         return self
     }
-}
+}*/
