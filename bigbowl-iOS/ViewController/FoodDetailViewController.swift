@@ -10,5 +10,8 @@ import Foundation
 import UIKit
 
 class FoodDetailViewController: UIViewController {
-    
+        
+    override func viewDidLoad() {
+        
+    }
 }

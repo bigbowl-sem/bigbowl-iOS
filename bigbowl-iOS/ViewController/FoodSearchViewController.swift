@@ -26,7 +26,6 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cuisinePickerTextField: UITextField!
     @IBOutlet weak var mapButton: UIImageView!
-    @IBOutlet weak var featuredLabel: UILabel!
     @IBOutlet weak var mapKitView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -55,29 +54,27 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         if cuisinePickerTextField.text == "None" && searchBar.text == "" {
             mapKitView.isHidden = true
-            featuredLabel.isHidden = false
             let currentPullUpController = children
-                .filter({ $0 is FoodListViewController })
-                .first as? FoodListViewController
+                .filter({ $0 is FoodListPullUpController })
+                .first as? FoodListPullUpController
             tableView.isHidden = false
             
             removePullUpController((currentPullUpController)!, animated: true)
 
         } else {
-            addPullUpController(animated: true)
             mapKitView.isHidden = false
-            featuredLabel.isHidden = true
             tableView.isHidden = true
+            addPullUpController(animated: true)
         }
 
     }
     
-    private func makeListViewIfNeeded() -> FoodListViewController {
+    private func makeListViewIfNeeded() -> FoodListPullUpController {
         let currentPullUpController = children
-            .filter({ $0 is FoodListViewController })
-            .first as? FoodListViewController
+            .filter({ $0 is FoodListPullUpController })
+            .first as? FoodListPullUpController
         
-        let pullUpController: FoodListViewController = currentPullUpController ?? UIStoryboard(name: "Eater",bundle: nil).instantiateViewController(withIdentifier: "FoodListViewController") as! FoodListViewController
+        let pullUpController: FoodListPullUpController = currentPullUpController ?? UIStoryboard(name: "Eater",bundle: nil).instantiateViewController(withIdentifier: "FoodListPullUpController") as! FoodListPullUpController
        if originalPullUpControllerViewSize == .zero {
            originalPullUpControllerViewSize = pullUpController.view.bounds.size
        }
@@ -131,6 +128,10 @@ extension FoodSearchViewController: UITableViewDataSource {
         cell.isVerified?.text = "verified ✅"
 //        cell.cookImage?.image = UIImage(named: "flame")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Featured"
     }
 }
 

@@ -28,7 +28,7 @@ class APIClient: NSObject {
     }
 
     static let sharedClient = APIClient()
-    var baseURLString: String? = nil
+    var baseURLString: String?
     var baseURL: URL {
         if let urlString = self.baseURLString, let url = URL(string: urlString) {
             return url
@@ -39,6 +39,7 @@ class APIClient: NSObject {
     
     func createPaymentIntent(amount: Int, currency: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
         let url = baseURL.appendingPathComponent("payment")
+        print(url)
         Alamofire.request(url, method: .post)
                   .validate(statusCode: 200..<300)
                   .responseString { response in
@@ -47,6 +48,7 @@ class APIClient: NSObject {
                             completionHandler(response, nil)
                             break
                         case .failure(let error):
+                            print(error)
                             completionHandler(nil, error)
                             break
                     }

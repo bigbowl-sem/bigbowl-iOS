@@ -20,7 +20,7 @@ class FoodDetailCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
 }
 
-class FoodListViewController: PullUpController {
+class FoodListPullUpController: PullUpController {
     
     enum InitialState {
          case contracted
@@ -46,7 +46,7 @@ class FoodListViewController: PullUpController {
         case .zero:
             return 0
         case .contracted:
-            return 220
+            return 250
         case .expanded:
             return pullUpControllerPreferredSize.height
         }
@@ -138,7 +138,7 @@ class FoodListViewController: PullUpController {
 
 }
 
-extension FoodListViewController: UITableViewDataSource {
+extension FoodListPullUpController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return 3
         }
@@ -157,7 +157,7 @@ extension FoodListViewController: UITableViewDataSource {
         }
 }
 
-extension FoodListViewController: UITableViewDelegate {
+extension FoodListPullUpController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("hello")
         if let viewController = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {

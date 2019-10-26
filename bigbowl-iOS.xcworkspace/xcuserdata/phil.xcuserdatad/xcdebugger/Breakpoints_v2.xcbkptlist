@@ -34,83 +34,22 @@
             endingLineNumber = "13"
             landmarkName = "unknown"
             landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "7F9F1B28-6096-4B7E-A436-94DADC9B40F8 - e47ca95d0cc5e5dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bigbowl_iOS.FoodDetailCell.__allocating_init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; bigbowl_iOS.FoodDetailCell"
-                  moduleName = "bigbowl-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Documents/cmu/bigbowl-iOS/bigbowl-iOS/ViewController/FoodListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "7F9F1B28-6096-4B7E-A436-94DADC9B40F8 - 428c41dd682ccf7c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bigbowl_iOS.FoodDetailCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; bigbowl_iOS.FoodDetailCell"
-                  moduleName = "bigbowl-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Documents/cmu/bigbowl-iOS/bigbowl-iOS/ViewController/FoodListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "182">
-               </Location>
-               <Location
-                  uuid = "7F9F1B28-6096-4B7E-A436-94DADC9B40F8 - 96dc098d46d868e1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bigbowl_iOS.FoodDetailCell.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;bigbowl_iOS.FoodDetailCell&gt;"
-                  moduleName = "bigbowl-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Documents/cmu/bigbowl-iOS/bigbowl-iOS/ViewController/FoodListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "7F9F1B28-6096-4B7E-A436-94DADC9B40F8 - 950dca2c33e829db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bigbowl_iOS.FoodDetailCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;bigbowl_iOS.FoodDetailCell&gt;"
-                  moduleName = "bigbowl-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Documents/cmu/bigbowl-iOS/bigbowl-iOS/ViewController/FoodListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "119">
-               </Location>
-               <Location
-                  uuid = "7F9F1B28-6096-4B7E-A436-94DADC9B40F8 - e7221a44416ffa96"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bigbowl_iOS.FoodDetailCell.__deallocating_deinit"
-                  moduleName = "bigbowl-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Documents/cmu/bigbowl-iOS/bigbowl-iOS/ViewController/FoodListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66EC679D-8004-4E6F-89D6-A68451A27C1E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bigbowl-iOS/ViewController/FoodListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "initialPointOffset"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
