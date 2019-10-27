@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2722CB9123553AAC00094DA2 /* Pods-bigbowl-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */; };
+		2722CB9223553AB000094DA2 /* Pods-bigbowl-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */; };
+		2722CBDD2356670200094DA2 /* Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2722CBDC2356670200094DA2 /* Map.jpg */; };
 		4A51086323551A6B009B70E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51086223551A6B009B70E7 /* AppDelegate.swift */; };
 		4A51086523551A6B009B70E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51086423551A6B009B70E7 /* SceneDelegate.swift */; };
 		4A51086723551A6B009B70E7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51086623551A6B009B70E7 /* FirstViewController.swift */; };
@@ -14,14 +17,25 @@
 		4A51086C23551A6B009B70E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A51086A23551A6B009B70E7 /* Main.storyboard */; };
 		4A51086E23551A6D009B70E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A51086D23551A6D009B70E7 /* Assets.xcassets */; };
 		4A51087123551A6D009B70E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A51086F23551A6D009B70E7 /* LaunchScreen.storyboard */; };
-		4A51087823551C8A009B70E7 /* Pods-bigbowl-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */; };
-		4A51087923551C8D009B70E7 /* Pods-bigbowl-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */; };
 		BD13BF5936DF1BCC3C01F142 /* Pods_bigbowl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1C9BB303AA5D8D75A41 /* Pods_bigbowl_iOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2722CBB823565A0600094DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2722CBB423565A0500094DA2 /* DemoMap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2722CB9D235659FF00094DA2;
+			remoteInfo = DemoMap;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.release.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		2722CB932356592A00094DA2 /* Map.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Map.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		2722CBB423565A0500094DA2 /* DemoMap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DemoMap.xcodeproj; path = "../Library/Mobile Documents/com~apple~CloudDocs/DemoMap/DemoMap.xcodeproj"; sourceTree = "<group>"; };
+		2722CBDC2356670200094DA2 /* Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Map.jpg; path = ../../Desktop/Map.jpg; sourceTree = "<group>"; };
 		4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bigbowl-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A51086223551A6B009B70E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A51086423551A6B009B70E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +60,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2722CBB523565A0500094DA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2722CBB923565A0600094DA2 /* DemoMap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4A51085623551A6B009B70E7 = {
 			isa = PBXGroup;
 			children = (
+				2722CBB423565A0500094DA2 /* DemoMap.xcodeproj */,
 				4A51086123551A6B009B70E7 /* bigbowl-iOS */,
 				4A51086023551A6B009B70E7 /* Products */,
 				85A6386740F1FA2FACF4691B /* Pods */,
@@ -73,8 +96,10 @@
 				4A51086823551A6B009B70E7 /* SecondViewController.swift */,
 				4A51086A23551A6B009B70E7 /* Main.storyboard */,
 				4A51086D23551A6D009B70E7 /* Assets.xcassets */,
+				2722CBDC2356670200094DA2 /* Map.jpg */,
 				4A51086F23551A6D009B70E7 /* LaunchScreen.storyboard */,
 				4A51087223551A6D009B70E7 /* Info.plist */,
+				2722CB932356592A00094DA2 /* Map.playground */,
 			);
 			path = "bigbowl-iOS";
 			sourceTree = "<group>";
@@ -144,6 +169,12 @@
 			mainGroup = 4A51085623551A6B009B70E7;
 			productRefGroup = 4A51086023551A6B009B70E7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2722CBB523565A0500094DA2 /* Products */;
+					ProjectRef = 2722CBB423565A0500094DA2 /* DemoMap.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4A51085E23551A6B009B70E7 /* bigbowl-iOS */,
@@ -151,15 +182,26 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2722CBB923565A0600094DA2 /* DemoMap.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DemoMap.app;
+			remoteRef = 2722CBB823565A0600094DA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		4A51085D23551A6B009B70E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A51087823551C8A009B70E7 /* Pods-bigbowl-iOS.release.xcconfig in Resources */,
-				4A51087923551C8D009B70E7 /* Pods-bigbowl-iOS.debug.xcconfig in Resources */,
+				2722CBDD2356670200094DA2 /* Map.jpg in Resources */,
 				4A51087123551A6D009B70E7 /* LaunchScreen.storyboard in Resources */,
+				2722CB9223553AB000094DA2 /* Pods-bigbowl-iOS.debug.xcconfig in Resources */,
 				4A51086E23551A6D009B70E7 /* Assets.xcassets in Resources */,
+				2722CB9123553AAC00094DA2 /* Pods-bigbowl-iOS.release.xcconfig in Resources */,
 				4A51086C23551A6B009B70E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
