@@ -393,10 +393,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="foodImage" destination="d1b-kC-HfR" id="jcv-sM-dx8"/>
-                                            <outlet property="meal" destination="a6j-g9-HLJ" id="Lub-8X-lEQ"/>
-                                            <outlet property="price" destination="Qy8-ez-Om7" id="b0W-Yv-UWk"/>
-                                            <outlet property="stars" destination="2mE-cE-Jd3" id="Vp9-vE-qMF"/>
+                                            <outlet property="foodImage" destination="d1b-kC-HfR" id="5aC-Mh-ayW"/>
+                                            <outlet property="meal" destination="a6j-g9-HLJ" id="Vg7-Ue-AZM"/>
+                                            <outlet property="price" destination="Qy8-ez-Om7" id="fVV-ge-ZIW"/>
+                                            <outlet property="stars" destination="2mE-cE-Jd3" id="UvP-cv-3hA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -427,7 +427,7 @@
                         <viewLayoutGuide key="safeArea" id="Vyu-2n-nI5"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Ief-kN-N6t" id="ssD-5V-fe6"/>
+                        <outlet property="tableView" destination="Ief-kN-N6t" id="rLy-rk-oqk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCE-Rn-iXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
