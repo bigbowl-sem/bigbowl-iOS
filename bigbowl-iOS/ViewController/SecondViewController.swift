@@ -14,7 +14,6 @@ class SecondViewController:  UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        Stripe.setDefaultPublishableKey("pk_test_6F20HBly8SsRgexvz67pwAjq00wjM1KJpM")
 
     }
     

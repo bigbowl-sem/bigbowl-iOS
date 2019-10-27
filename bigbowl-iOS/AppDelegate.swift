@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Ex: "http://localhost:3000" if you're running the Node server locally,
      or "https://rocketrides.io" to try the app using our hosted version.
      */
-    private let baseURLString: String = "http://b557ef9a.ngrok.io"
+    private let baseURLString: String = "https://0e443a3c.ngrok.io"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
