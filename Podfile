@@ -11,5 +11,6 @@ target 'bigbowl-iOS' do
   pod 'Stripe'
   pod 'Alamofire'
   pod 'PullUpController'
-
+  pod 'Google/SignIn'
+  
 end

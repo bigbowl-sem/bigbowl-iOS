@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import GoogleSignIn  //Added Apoulose
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,13 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Ex: "http://localhost:3000" if you're running the Node server locally,
      or "https://rocketrides.io" to try the app using our hosted version.
      */
-    private let baseURLString: String = "https://0e443a3c.ngrok.io"
+    private let baseURLString: String = "http://b5fcad72.ngrok.io"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+         GIDSignIn.sharedInstance().clientID = "133967199290-f1fhprptd51g5mjpahcliid9c0is3rqp.apps.googleusercontent.com"
+
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+           return GIDSignIn.sharedInstance().handle(url as URL?,
+                                sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+       }
 
     // MARK: UISceneSession Lifecycle
 
