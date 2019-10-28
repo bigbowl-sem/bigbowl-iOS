@@ -61,7 +61,7 @@ class FoodListPullUpController: PullUpController {
         super.viewDidLoad()
         
         portraitSize = CGSize(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height),
-                              height: bodyView.frame.maxY - 200)
+                              height: bodyView.frame.maxY - 175)
         landscapeFrame = CGRect(x: 5, y: 50, width: 280, height: 300)
         
         self.tableView.dataSource = self

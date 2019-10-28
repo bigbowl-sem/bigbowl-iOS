@@ -9,6 +9,7 @@
 import Foundation
 import Stripe
 import Alamofire
+import MapKit
 
 enum NetworkError: Error {
     case badURL
@@ -52,6 +53,28 @@ class APIClient: NSObject {
                             completionHandler(nil, error)
                             break
                     }
+        }
+    }
+    
+    func getCooksInArea(coordinates: CLLocation, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
+        let url = baseURL.appendingPathComponent("cook/proximity")
+        var parameters = [String:Any]()
+        parameters["lng"] = coordinates.coordinate.longitude
+        parameters["lat"] = coordinates.coordinate.latitude
+        parameters["radius"] = 1
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString))
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                switch response.result {
+                    case .success:
+                    completionHandler(response, nil)
+                    break
+                    case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
         }
     }
     
