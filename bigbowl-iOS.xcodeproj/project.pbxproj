@@ -22,6 +22,9 @@
 		4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */; };
 		4AA91B442362624600F09E4B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B432362624600F09E4B /* SettingsViewController.swift */; };
 		4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4923641F8800F09E4B /* OrderViewController.swift */; };
+		4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */; };
+		4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */; };
+		4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AA91B572366AEDA00F09E4B /* credentials.plist */; };
 		4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA0319235F97FC00F94AEF /* LoginViewController.swift */; };
 		4AEA0322235F9D7F00F94AEF /* Cook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEA0321235F9D7F00F94AEF /* Cook.storyboard */; };
 		BD13BF5936DF1BCC3C01F142 /* Pods_bigbowl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1C9BB303AA5D8D75A41 /* Pods_bigbowl_iOS.framework */; };
@@ -45,6 +48,9 @@
 		4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		4AA91B432362624600F09E4B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4AA91B4923641F8800F09E4B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterLoginViewController.swift; sourceTree = "<group>"; };
+		4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLoginViewController.swift; sourceTree = "<group>"; };
+		4AA91B572366AEDA00F09E4B /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		4AEA0319235F97FC00F94AEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AEA0321235F9D7F00F94AEF /* Cook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cook.storyboard; sourceTree = "<group>"; };
 		8EA0C1C9BB303AA5D8D75A41 /* Pods_bigbowl_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigbowl_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,8 @@
 				4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */,
 				4AA91B432362624600F09E4B /* SettingsViewController.swift */,
 				4AA91B4923641F8800F09E4B /* OrderViewController.swift */,
+				4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */,
+				4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3CE6662355A1BF006D54FB /* APIClient.swift */,
+				4AA91B572366AEDA00F09E4B /* credentials.plist */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 				4A51085C23551A6B009B70E7 /* Frameworks */,
 				4A51085D23551A6B009B70E7 /* Resources */,
 				461CAD82B5C567B905CE975C /* [CP] Embed Pods Frameworks */,
+				6A014845228C79D0BBA3B0D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A595F28235FAB04000F7A7C /* Eater.storyboard in Resources */,
+				4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */,
 				4A3CE6682355A28D006D54FB /* Pods-bigbowl-iOS.debug.xcconfig in Resources */,
 				4A51087123551A6D009B70E7 /* LaunchScreen.storyboard in Resources */,
 				4A51086E23551A6D009B70E7 /* Assets.xcassets in Resources */,
@@ -264,6 +275,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6A014845228C79D0BBA3B0D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -271,8 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */,
 				4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */,
 				4A51086323551A6B009B70E7 /* AppDelegate.swift in Sources */,
+				4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */,
 				4A51086523551A6B009B70E7 /* SceneDelegate.swift in Sources */,
 				4AA91B442362624600F09E4B /* SettingsViewController.swift in Sources */,
 				4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */,
