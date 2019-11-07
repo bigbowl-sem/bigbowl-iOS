@@ -16,6 +16,8 @@ struct SecretKey: Codable{
 
 class OrderCell: UITableViewCell {
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var price: UILabel!
 }
 
 class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
@@ -24,12 +26,17 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     @IBOutlet weak var cardNum: UILabel!
     @IBOutlet weak var addCardButton: UIButton!
     var paymentMethod = STPPaymentMethod()
+    var cartItems : [CartItem] = []
     var clientSecret = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cardNum.isHidden = true
+        cartItems = CartViewModel.cartItems
+        tableView.delegate = self
+        tableView.dataSource = self
+        print(cartItems)
     }
             
     @IBAction func payTapped(_ sender: Any) {
@@ -83,8 +90,6 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         self.paymentMethod = paymentMethod
         cardNum.text? = paymentMethod.card?.last4 ?? "error"
         cardNum.isHidden = false
-    
-        
     }
         
             
@@ -98,4 +103,26 @@ extension OrderViewController: STPAuthenticationContext {
     func authenticationPresentingViewController() -> UIViewController {
         return self
     }
+}
+
+extension OrderViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cartItems.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
+        let cartItem = self.cartItems[indexPath.item]
+        cell.name?.text = cartItem.name
+        cell.price?.text = "$" + String(cartItem.price)
+        return cell
+    }
+        
+}
+
+extension OrderViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         return "Cart"
+     }
 }

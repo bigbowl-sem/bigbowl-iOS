@@ -84,6 +84,7 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
         mapView.delegate = self
         locationManager.delegate = self
         
+        
         checkLocationServices()
         let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
         mapView.setRegion(coordinateRegion, animated: true)

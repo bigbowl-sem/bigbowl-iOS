@@ -32,12 +32,17 @@ class FoodListPullUpController: PullUpController {
        "yo", "🐱", "🐔", "🐶", "🦊", "🐵", "🐼", "🐷", "💩", "🐰",
        "🤖", "🦄", "🐻", "🐲", "🦁", "💀", "🐨", "🐯", "👻", "🦖",
     ]
-     
     
+    var sortBy: [String] = [
+        "Rating", "Price", "Distance"
+    ]
+     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+    var picker = UIPickerView()
+    var toolBar = UIToolbar()
+
     var initialState: InitialState = .contracted
     
     
@@ -66,6 +71,7 @@ class FoodListPullUpController: PullUpController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
     }
     
     override func loadView() {
@@ -73,6 +79,33 @@ class FoodListPullUpController: PullUpController {
         
     }
 
+    @IBAction func sortTapped(_ sender: Any) {
+        picker = UIPickerView.init()
+        picker.backgroundColor = UIColor.white
+        picker.setValue(UIColor.black, forKey: "textColor")
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        picker.dataSource = self
+        picker.delegate = self
+
+//        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+//        toolBar.barStyle = .blackTranslucent
+//        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+//        self.view.addSubview(toolBar)
+    }
+    
+    @objc func onDoneButtonTapped() {
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+    }
+    
+    @IBAction func filterTapped(_ sender: Any) {
+        if let viewController = storyboard?.instantiateViewController(identifier: "FilterViewController") as? FilterViewController {
+                   navigationController?.pushViewController(viewController, animated: true)
+            }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -164,4 +197,24 @@ extension FoodListPullUpController: UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
+}
+
+extension FoodListPullUpController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sortBy.count
+    }
+
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sortBy[row]
+    }
+
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // do something
+    }
+    
 }
