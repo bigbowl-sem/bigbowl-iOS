@@ -14,13 +14,13 @@ import PullUpController
 class FoodDetailCell: UITableViewCell {
     
     @IBOutlet weak var foodImage: UIImageView!
-    @IBOutlet weak var meal: UILabel!
     @IBOutlet weak var cook: UILabel!
+    @IBOutlet weak var meal: UILabel!
     @IBOutlet weak var stars: UILabel!
     @IBOutlet weak var price: UILabel!
 }
 
-class FoodListPullUpController: PullUpController {
+class CookListPullUpController: PullUpController {
     
     enum InitialState {
          case contracted
@@ -42,6 +42,7 @@ class FoodListPullUpController: PullUpController {
     @IBOutlet weak var tableView: UITableView!
     var picker = UIPickerView()
     var toolBar = UIToolbar()
+    var searchViewModel = SearchViewModel()
 
     var initialState: InitialState = .contracted
     
@@ -171,7 +172,7 @@ class FoodListPullUpController: PullUpController {
 
 }
 
-extension FoodListPullUpController: UITableViewDataSource {
+extension CookListPullUpController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return 3
         }
@@ -188,18 +189,21 @@ extension FoodListPullUpController: UITableViewDataSource {
     //        cell.foodImage?.image = UIImage(named: "flame")
             return cell
         }
+    
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return "Cooks"
+        }
 }
 
-extension FoodListPullUpController: UITableViewDelegate {
+extension CookListPullUpController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
-        if let viewController = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
+        if let viewController = storyboard?.instantiateViewController(identifier: "CookDetailViewController") as? CookDetailViewController {
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
 
-extension FoodListPullUpController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension CookListPullUpController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

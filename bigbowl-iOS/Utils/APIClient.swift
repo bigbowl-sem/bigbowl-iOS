@@ -56,6 +56,23 @@ class APIClient: NSObject {
         }
     }
     
+    func completePayment(cartId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
+        let url = baseURL.appendingPathComponent("payment/complete")
+        Alamofire.request(url, method: .post)
+                  .validate(statusCode: 200..<300)
+                  .responseString { response in
+                    switch response.result {
+                        case .success:
+                            completionHandler(response, nil)
+                            break
+                        case .failure(let error):
+                            print(error)
+                            completionHandler(nil, error)
+                            break
+                    }
+        }
+    }
+    
     func getCooksInArea(coordinates: CLLocation, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
         let url = baseURL.appendingPathComponent("cook/proximity")
         var parameters = [String:Any]()
@@ -77,5 +94,4 @@ class APIClient: NSObject {
                 }
         }
     }
-    
 }

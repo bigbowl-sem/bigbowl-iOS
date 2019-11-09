@@ -24,6 +24,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardNum: UILabel!
+    @IBOutlet weak var cardType: UILabel!
     @IBOutlet weak var addCardButton: UIButton!
     var paymentMethod = STPPaymentMethod()
     var cartItems : [CartItem] = []
@@ -33,6 +34,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         cardNum.isHidden = true
+        cardType.isHidden = true
         cartItems = CartViewModel.cartItems
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,6 +55,9 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                    print("canceled")
                    break
                case .succeeded:
+                    APIClient.sharedClient.completePayment(cartId: "FAKE100", completionHandler: { response, error  in
+                        print(response)
+                    })
                    print("success")
                    break
              @unknown default:
@@ -88,8 +93,10 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         print(self.clientSecret)
         addCardButton.isHidden = true
         self.paymentMethod = paymentMethod
-        cardNum.text? = paymentMethod.card?.last4 ?? "error"
+        cardType.text? = "Expires: " + String(paymentMethod.card?.expYear ?? -1)
+        cardNum.text? = "Number: **** **** **** " + (paymentMethod.card?.last4 ?? "error")
         cardNum.isHidden = false
+        cardType.isHidden = false
     }
         
             
@@ -116,6 +123,14 @@ extension OrderViewController: UITableViewDelegate {
         cell.name?.text = cartItem.name
         cell.price?.text = "$" + String(cartItem.price)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.cartItems = CartViewModel.sharedCart.removeFromCart(id: self.cartItems[indexPath.item].id)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("delete")
+        }
     }
         
 }
