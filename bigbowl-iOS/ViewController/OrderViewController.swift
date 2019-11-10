@@ -52,7 +52,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         let paymentIntentParams = STPPaymentIntentParams(clientSecret: self.clientSecret)
         paymentIntentParams.paymentMethodId = paymentMethod.stripeId
         let paymentManager = STPPaymentHandler.shared()
-        paymentManager.confirmPayment(paymentIntentParams, with: self, completion: { (status, paymentIntent, error) in
+        paymentManager.confirmPayment(withParams: paymentIntentParams, authenticationContext: self, completion: { (status, paymentIntent, error) in
              switch (status) {
                case .failed:
                    print("error")
