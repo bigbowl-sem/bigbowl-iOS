@@ -15,9 +15,8 @@ class FoodDetailCell: UITableViewCell {
     
     @IBOutlet weak var foodImage: UIImageView!
     @IBOutlet weak var cook: UILabel!
-    @IBOutlet weak var meal: UILabel!
     @IBOutlet weak var stars: UILabel!
-    @IBOutlet weak var price: UILabel!
+
 }
 
 class CookListPullUpController: PullUpController {
@@ -27,16 +26,7 @@ class CookListPullUpController: PullUpController {
          case expanded
          case zero
     }
-    
-    var items: [String] = [
-       "yo", "🐱", "🐔", "🐶", "🦊", "🐵", "🐼", "🐷", "💩", "🐰",
-       "🤖", "🦄", "🐻", "🐲", "🦁", "💀", "🐨", "🐯", "👻", "🦖",
-    ]
-    
-    var sortBy: [String] = [
-        "Rating", "Price", "Distance"
-    ]
-     
+         
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -45,7 +35,7 @@ class CookListPullUpController: PullUpController {
     var searchViewModel = SearchViewModel()
 
     var initialState: InitialState = .contracted
-    
+    var cooks: [Cook] = []
     
     var initialPointOffset: CGFloat {
         switch initialState {
@@ -67,7 +57,7 @@ class CookListPullUpController: PullUpController {
         super.viewDidLoad()
         
         portraitSize = CGSize(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height),
-                              height: bodyView.frame.maxY - 175)
+                              height: bodyView.frame.maxY - 150)
         landscapeFrame = CGRect(x: 5, y: 50, width: 280, height: 300)
         
         self.tableView.dataSource = self
@@ -77,28 +67,11 @@ class CookListPullUpController: PullUpController {
     
     override func loadView() {
         super.loadView()
-        
+        tableView.reloadData()
     }
 
     @IBAction func sortTapped(_ sender: Any) {
-        picker = UIPickerView.init()
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        picker.dataSource = self
-        picker.delegate = self
 
-//        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-//        toolBar.barStyle = .blackTranslucent
-//        toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-//        self.view.addSubview(toolBar)
-    }
-    
-    @objc func onDoneButtonTapped() {
-        toolBar.removeFromSuperview()
-        picker.removeFromSuperview()
     }
     
     @IBAction func filterTapped(_ sender: Any) {
@@ -109,7 +82,6 @@ class CookListPullUpController: PullUpController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         view.layer.cornerRadius = 12
     }
         
@@ -174,17 +146,14 @@ class CookListPullUpController: PullUpController {
 
 extension CookListPullUpController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 3
+            return self.cooks.count
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodDetailCell", for: indexPath) as! FoodDetailCell
             
-            // let item = self.items[indexPath.item]
-            cell.cook?.text = "Brad Pitt"
-            cell.price?.text = "$5.99"
-
-            cell.meal?.text = "Pad thai"
+            let item = self.cooks[indexPath.item]
+            cell.cook?.text = item.displayName
             cell.stars?.text = "5/5 rating"
     //        cell.foodImage?.image = UIImage(named: "flame")
             return cell
@@ -198,27 +167,9 @@ extension CookListPullUpController: UITableViewDataSource {
 extension CookListPullUpController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let viewController = storyboard?.instantiateViewController(identifier: "CookDetailViewController") as? CookDetailViewController {
+            let cook = self.cooks[indexPath.item]
+            viewController.cook = cook
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
-}
-
-extension CookListPullUpController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sortBy.count
-    }
-
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sortBy[row]
-    }
-
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // do something
-    }
-    
 }

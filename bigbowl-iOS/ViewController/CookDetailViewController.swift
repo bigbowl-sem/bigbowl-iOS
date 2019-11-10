@@ -22,11 +22,14 @@ class MenuCell: UITableViewCell {
 class CookDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var cookName: UILabel!
+    var cook: Cook?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.cookName.text = self.cook?.displayName
     }
     
 }

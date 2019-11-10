@@ -11,6 +11,8 @@ import MapKit
 
 struct Cook: Codable{
     var cookId: String
+    var displayName: String
+    var rating: Double
     var lat: Double
     var lng: Double
 }

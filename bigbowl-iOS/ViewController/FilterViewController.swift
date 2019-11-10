@@ -11,7 +11,8 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
-    
+    let cuisineOptions = ["None", "Italian", "Thai", "Mexican", "American", "Chinese"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

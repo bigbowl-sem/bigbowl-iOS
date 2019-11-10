@@ -45,7 +45,7 @@ class APIClient: NSObject {
                   .validate(statusCode: 200..<300)
                   .responseString { response in
                     switch response.result {
-                        case .success: 
+                        case .success:
                             completionHandler(response, nil)
                             break
                         case .failure(let error):
@@ -73,7 +73,7 @@ class APIClient: NSObject {
         }
     }
     
-    func getCooksInArea(coordinates: CLLocation, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
+    func getCooksInArea(coordinates: CLLocation, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("cook/proximity")
         var parameters = [String:Any]()
         parameters["lng"] = coordinates.coordinate.longitude
@@ -94,4 +94,44 @@ class APIClient: NSObject {
                 }
         }
     }
+    
+    func getMenu(menuId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("menu/" + menuId)
+        Alamofire.request(url, method: .get)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                switch response.result {
+                    case .success:
+                    completionHandler(response, nil)
+                    break
+                    case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+        }
+    }
+    
+    func getReviews(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("review/eaterId/" + userId)
+        Alamofire.request(url, method: .get)
+            .validate(statusCode: 200..<300)
+            .responseString{ response in
+                switch response.result {
+                case .success:
+                    completionHandler(response, nil)
+                    break
+                case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+            }
+    }
+    
+    func postReview() {
+        
+    }
+    
+    
 }
