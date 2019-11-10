@@ -64,7 +64,7 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
             searchViewModel.getCooks(location: locationManager.location!) { cooks in
                 for cook in cooks {
                     let annotation = EventAnnotation()
-                    print(cook.cookId)
+                    annotation.theCook = cook
                     annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
                     annotation.title = cook.displayName
                     annotation.subtitle = "Good food here!"

@@ -16,16 +16,33 @@ class ReviewCell: UITableViewCell {
     @IBOutlet weak var cook: UILabel!
 }
 
+class Review: Codable {
+    var orderId: String
+    var reviewId: String
+}
+
 class PersonalAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    var reviews = ["hey"]
+    var reviews: [Review] = []
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        APIClient.sharedClient.getOrders(userId: "Fake0") { response, error in
+            if let response = response {
+                do {
+                    let decoder = JSONDecoder()
+                    self.reviews = try decoder.decode([Review].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                    self.tableView.reloadData()
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            }
+        }
     }
     
     @IBAction func settingsTapped(_ sender: Any) {
@@ -35,7 +52,7 @@ class PersonalAccountViewController: UIViewController {
 
 extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        reviews.count
+        self.reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

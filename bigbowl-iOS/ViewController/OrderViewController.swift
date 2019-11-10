@@ -68,6 +68,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                         let defaultAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                             alertController.addAction(defaultAction)
                         self.present(alertController, animated: true, completion: nil)
+                        self.clearCart()
                     })
                    print("success")
                    break

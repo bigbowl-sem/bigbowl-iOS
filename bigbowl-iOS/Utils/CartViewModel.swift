@@ -18,6 +18,7 @@ class CartViewModel {
         print("adding to cart")
         guard var item = CartItem(["id": id, "name": name, "price": price]) else { return CartViewModel.cartItems }
         CartViewModel.cartItems.append(item)
+        cartToServer()
         return CartViewModel.cartItems
     }
     
@@ -37,12 +38,28 @@ class CartViewModel {
                 break
              }
          }
+        cartToServer()
         return CartViewModel.cartItems
     }
     
     func paymentCompleted() -> [CartItem] {
         CartViewModel.cartItems = []
+        cartToServer()
         return []
+    }
+    
+    func cartToServer() {
+        APIClient.sharedClient.postCart(cartId: "Fake0", cartItems: CartViewModel.cartItems, totalPrice: 0.00){ response, error in
+            
+            if let response = response {
+                do {
+                    //here dataResponse received from a network request
+                   print("Response", response)
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            }
+        }
     }
     
 //    func fetchData() -> [CartItem] {

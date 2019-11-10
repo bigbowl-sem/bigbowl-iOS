@@ -13,6 +13,7 @@ struct Cook: Codable{
     var cookId: String
     var displayName: String
     var rating: Double
+    var menuId: String
     var lat: Double
     var lng: Double
 }
