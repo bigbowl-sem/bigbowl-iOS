@@ -170,14 +170,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Y3y-FU-8jY" customClass="OrderItemCell" customModule="bigbowl_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3y-FU-8jY" id="mhh-wf-Zym">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3b-bs-Wi6">
-                                                    <rect key="frame" x="20" y="12" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="42" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="Feu-b3-h4l"/>
                                                     </constraints>
@@ -186,7 +186,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7E-RN-d0q">
-                                                    <rect key="frame" x="314" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="314" y="11" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -208,8 +208,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50g-y4-QVM">
-                                <rect key="frame" x="20" y="777" width="46" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50g-y4-QVM">
+                                <rect key="frame" x="20" y="777" width="148" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -222,7 +222,6 @@
                             <constraint firstItem="8Ec-L1-7bl" firstAttribute="top" secondItem="Y2p-Wl-vPH" secondAttribute="top" constant="25" id="Cga-ha-lXD"/>
                             <constraint firstItem="Y2p-Wl-vPH" firstAttribute="bottom" secondItem="50g-y4-QVM" secondAttribute="bottom" constant="58" id="DFu-96-NGr"/>
                             <constraint firstItem="vkn-J2-IgY" firstAttribute="top" secondItem="8Ec-L1-7bl" secondAttribute="bottom" constant="24" id="Ire-Ap-i3C"/>
-                            <constraint firstItem="Y2p-Wl-vPH" firstAttribute="trailing" secondItem="50g-y4-QVM" secondAttribute="trailing" constant="348" id="Izp-pn-6fc"/>
                             <constraint firstItem="pjK-zF-dD0" firstAttribute="leading" secondItem="Y2p-Wl-vPH" secondAttribute="leading" constant="20" id="Q3E-DV-DbY"/>
                             <constraint firstItem="Y2p-Wl-vPH" firstAttribute="trailing" secondItem="eZ4-4F-fgO" secondAttribute="trailing" constant="20" id="S7U-xT-p8z"/>
                             <constraint firstItem="8Ec-L1-7bl" firstAttribute="leading" secondItem="Y2p-Wl-vPH" secondAttribute="leading" constant="20" id="Vlc-a0-5Yx"/>
@@ -744,24 +743,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CE0-Ht-jhW">
-                                <rect key="frame" x="20" y="266" width="374" height="430.5"/>
+                                <rect key="frame" x="20" y="266" width="374" height="430"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OrderCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" id="EWO-oC-ZfM" customClass="OrderCell" customModule="bigbowl_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWO-oC-ZfM" id="NyD-LW-xmV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-ch-NZu">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-lt-uXf">
-                                                    <rect key="frame" x="318" y="12" width="42" height="21.5"/>
+                                                    <rect key="frame" x="318" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -784,7 +783,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8Q-9x-b7G">
-                                <rect key="frame" x="171" y="763.5" width="72" height="35.5"/>
+                                <rect key="frame" x="171" y="763" width="72" height="36"/>
                                 <state key="normal" title="Pay"/>
                                 <connections>
                                     <action selector="payTapped:" destination="VDy-zM-8L1" eventType="touchUpInside" id="gsI-YZ-jq7"/>
@@ -837,8 +836,8 @@
                                     <constraint firstItem="4qQ-Pk-LGN" firstAttribute="top" secondItem="rbM-JJ-NFP" secondAttribute="bottom" constant="61" id="xog-r5-oaU"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKc-Qc-Pvs">
-                                <rect key="frame" x="20" y="715.5" width="130" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKc-Qc-Pvs">
+                                <rect key="frame" x="20" y="715" width="130" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -868,6 +867,7 @@
                         <outlet property="addCardButton" destination="4qQ-Pk-LGN" id="Pit-xr-G8u"/>
                         <outlet property="cardNum" destination="Q79-Ft-hB9" id="aeD-JG-YwQ"/>
                         <outlet property="cardType" destination="mnE-Ut-tdI" id="y1p-Tf-ieN"/>
+                        <outlet property="dollar" destination="ZKc-Qc-Pvs" id="xf5-1R-ygc"/>
                         <outlet property="tableView" destination="CE0-Ht-jhW" id="Lz6-Qn-lmn"/>
                     </connections>
                 </viewController>

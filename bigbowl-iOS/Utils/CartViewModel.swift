@@ -40,6 +40,11 @@ class CartViewModel {
         return CartViewModel.cartItems
     }
     
+    func paymentCompleted() -> [CartItem] {
+        CartViewModel.cartItems = []
+        return []
+    }
+    
 //    func fetchData() -> [CartItem] {
 //        
 //        if let list = defaults.value(forKey: "encodedList") as? [[String: Any]] {

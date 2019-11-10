@@ -26,6 +26,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     @IBOutlet weak var cardNum: UILabel!
     @IBOutlet weak var cardType: UILabel!
     @IBOutlet weak var addCardButton: UIButton!
+    @IBOutlet weak var dollar: UILabel!
     var paymentMethod = STPPaymentMethod()
     var cartItems : [CartItem] = []
     var clientSecret = ""
@@ -39,6 +40,12 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         print(cartItems)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("view did appear")
+        cartItems = CartViewModel.cartItems
+        tableView.reloadData()
     }
             
     @IBAction func payTapped(_ sender: Any) {
@@ -57,6 +64,10 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                case .succeeded:
                     APIClient.sharedClient.completePayment(cartId: "FAKE100", completionHandler: { response, error  in
                         print(response)
+                        let alertController = UIAlertController(title: "Purchase successful", message: "Get ready for yummy food!", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                            alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
                     })
                    print("success")
                    break
@@ -103,6 +114,12 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
         dismiss(animated: true)
     }
+    
+    func clearCart() {
+        cartItems = CartViewModel.sharedCart.paymentCompleted()
+        dollar.text? = "$0.00"
+    }
+    
         
 }
 
