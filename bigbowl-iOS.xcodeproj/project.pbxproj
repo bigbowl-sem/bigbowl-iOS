@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A1E3F462360379B00B15DF4 /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F452360379B00B15DF4 /* FoodSearchViewController.swift */; };
-		4A1E3F482360466A00B15DF4 /* FoodListPullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F472360466A00B15DF4 /* FoodListPullUpController.swift */; };
+		4A1E3F482360466A00B15DF4 /* CookListPullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */; };
 		4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE6662355A1BF006D54FB /* APIClient.swift */; };
 		4A3CE6682355A28D006D54FB /* Pods-bigbowl-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */; };
 		4A3CE6692355A290006D54FB /* Pods-bigbowl-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */; };
@@ -18,23 +17,30 @@
 		4A51086E23551A6D009B70E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A51086D23551A6D009B70E7 /* Assets.xcassets */; };
 		4A51087123551A6D009B70E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A51086F23551A6D009B70E7 /* LaunchScreen.storyboard */; };
 		4A595F28235FAB04000F7A7C /* Eater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A595F27235FAB04000F7A7C /* Eater.storyboard */; };
+		4A92842A2372AC55009A1886 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9284292372AC55009A1886 /* SearchViewModel.swift */; };
+		4A92842C2373820C009A1886 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A92842B2373820C009A1886 /* CartViewModel.swift */; };
+		4A92842E237391B1009A1886 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A92842D237391B1009A1886 /* FilterViewController.swift */; };
+		4A9284302373EE3F009A1886 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A92842F2373EE3F009A1886 /* CartItem.swift */; };
 		4AA91B4023624F1900F09E4B /* CookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B3F23624F1900F09E4B /* CookDetailViewController.swift */; };
 		4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */; };
-		4AA91B442362624600F09E4B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B432362624600F09E4B /* SettingsViewController.swift */; };
+		4AA91B442362624600F09E4B /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */; };
 		4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4923641F8800F09E4B /* OrderViewController.swift */; };
 		4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */; };
 		4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */; };
 		4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AA91B572366AEDA00F09E4B /* credentials.plist */; };
 		4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA0319235F97FC00F94AEF /* LoginViewController.swift */; };
 		4AEA0322235F9D7F00F94AEF /* Cook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEA0321235F9D7F00F94AEF /* Cook.storyboard */; };
+		4AF3F9DE2377644D00847D4B /* CookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */; };
+		4AF3F9E02377756E00847D4B /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */; };
+		4AF3F9E2237775D200847D4B /* PersonalAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9E1237775D200847D4B /* PersonalAccountViewModel.swift */; };
+		4AF3F9E423777A9100847D4B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9E323777A9100847D4B /* Review.swift */; };
 		BD13BF5936DF1BCC3C01F142 /* Pods_bigbowl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1C9BB303AA5D8D75A41 /* Pods_bigbowl_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.release.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		4A1E3F452360379B00B15DF4 /* FoodSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
-		4A1E3F472360466A00B15DF4 /* FoodListPullUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListPullUpController.swift; sourceTree = "<group>"; };
+		4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookListPullUpController.swift; sourceTree = "<group>"; };
 		4A3CE6662355A1BF006D54FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bigbowl-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A51086223551A6B009B70E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,15 +50,23 @@
 		4A51087023551A6D009B70E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A51087223551A6D009B70E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A595F27235FAB04000F7A7C /* Eater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Eater.storyboard; sourceTree = "<group>"; };
+		4A9284292372AC55009A1886 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = "bigbowl-iOS/Utils/SearchViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		4A92842B2373820C009A1886 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartViewModel.swift; path = "bigbowl-iOS/Utils/CartViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		4A92842D237391B1009A1886 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		4A92842F2373EE3F009A1886 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		4AA91B3F23624F1900F09E4B /* CookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookDetailViewController.swift; sourceTree = "<group>"; };
 		4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
-		4AA91B432362624600F09E4B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
 		4AA91B4923641F8800F09E4B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterLoginViewController.swift; sourceTree = "<group>"; };
 		4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLoginViewController.swift; sourceTree = "<group>"; };
 		4AA91B572366AEDA00F09E4B /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		4AEA0319235F97FC00F94AEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AEA0321235F9D7F00F94AEF /* Cook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cook.storyboard; sourceTree = "<group>"; };
+		4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSearchViewController.swift; sourceTree = "<group>"; };
+		4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
+		4AF3F9E1237775D200847D4B /* PersonalAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalAccountViewModel.swift; path = "bigbowl-iOS/ViewController/PersonalAccountViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		4AF3F9E323777A9100847D4B /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		8EA0C1C9BB303AA5D8D75A41 /* Pods_bigbowl_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigbowl_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +85,8 @@
 		4A3CE66023552591006D54FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A92842F2373EE3F009A1886 /* CartItem.swift */,
+				4AF3F9E323777A9100847D4B /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +94,9 @@
 		4A3CE661235525A9006D54FB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4A9284292372AC55009A1886 /* SearchViewModel.swift */,
+				4A92842B2373820C009A1886 /* CartViewModel.swift */,
+				4AF3F9E1237775D200847D4B /* PersonalAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -86,14 +105,16 @@
 			isa = PBXGroup;
 			children = (
 				4AEA0319235F97FC00F94AEF /* LoginViewController.swift */,
-				4A1E3F452360379B00B15DF4 /* FoodSearchViewController.swift */,
-				4A1E3F472360466A00B15DF4 /* FoodListPullUpController.swift */,
+				4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */,
 				4AA91B3F23624F1900F09E4B /* CookDetailViewController.swift */,
 				4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */,
-				4AA91B432362624600F09E4B /* SettingsViewController.swift */,
+				4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */,
 				4AA91B4923641F8800F09E4B /* OrderViewController.swift */,
 				4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */,
 				4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */,
+				4A92842D237391B1009A1886 /* FilterViewController.swift */,
+				4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */,
+				4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -299,18 +320,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF3F9E2237775D200847D4B /* PersonalAccountViewModel.swift in Sources */,
 				4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */,
 				4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */,
+				4A9284302373EE3F009A1886 /* CartItem.swift in Sources */,
+				4A92842C2373820C009A1886 /* CartViewModel.swift in Sources */,
 				4A51086323551A6B009B70E7 /* AppDelegate.swift in Sources */,
 				4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */,
 				4A51086523551A6B009B70E7 /* SceneDelegate.swift in Sources */,
-				4AA91B442362624600F09E4B /* SettingsViewController.swift in Sources */,
+				4A92842A2372AC55009A1886 /* SearchViewModel.swift in Sources */,
+				4AA91B442362624600F09E4B /* PersonalAccountViewController.swift in Sources */,
 				4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */,
-				4A1E3F462360379B00B15DF4 /* FoodSearchViewController.swift in Sources */,
-				4A1E3F482360466A00B15DF4 /* FoodListPullUpController.swift in Sources */,
+				4AF3F9DE2377644D00847D4B /* CookSearchViewController.swift in Sources */,
+				4A92842E237391B1009A1886 /* FilterViewController.swift in Sources */,
+				4A1E3F482360466A00B15DF4 /* CookListPullUpController.swift in Sources */,
+				4AF3F9E423777A9100847D4B /* Review.swift in Sources */,
 				4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */,
 				4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */,
 				4AA91B4023624F1900F09E4B /* CookDetailViewController.swift in Sources */,
+				4AF3F9E02377756E00847D4B /* ReviewDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

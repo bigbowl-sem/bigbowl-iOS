@@ -10,11 +10,8 @@ import Foundation
 import UIKit
 import MapKit
 
+class EventAnnotation : MKPointAnnotation {
 
-struct Cook: Codable{
-    var cookId: String
-    var lat: Double
-    var lng: Double
 }
 
 class CookDetailCell: UITableViewCell {
@@ -37,6 +34,7 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var tableView: UITableView!
     
     let locationManager = CLLocationManager()
+    let searchViewModel = SearchViewModel()
     var movedToUserLocation = false
     
     let cuisineOptions = ["None", "Italian", "Thai", "Mexican", "American", "Chinese"]
@@ -86,31 +84,34 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
         mapView.delegate = self
         locationManager.delegate = self
         
+        
         checkLocationServices()
         let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
         mapView.setRegion(coordinateRegion, animated: true)
-        APIClient.sharedClient.getCooksInArea(coordinates: locationManager.location!){ response, error in
-            if let response = response {
-                do {
-                    //here dataResponse received from a network request
-                    let decoder = JSONDecoder()
-                    let cooks = try decoder.decode([Cook].self, from: response.data!) //Decode JSON Response Data
-                    
-                    for cook in cooks {
-                        let annotation = MKPointAnnotation()
-                        print(cook.cookId)
-                        annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
-                        annotation.title = cook.cookId
-                        annotation.subtitle = "I promise I won't give you food poisoning!"
-                        self.mapView.addAnnotation(annotation)
-                    }
-                
-                } catch let parsingError {
-                    print("Error", parsingError)
-                }
+        searchViewModel.getCooks(location: locationManager.location!) { cooks in
+            print(cooks)
+            for cook in cooks {
+                let annotation = EventAnnotation()
+                print(cook.cookId)
+                annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
+                annotation.title = cook.cookId
+                annotation.subtitle = "I promise I won't give you food poisoning!"
+                self.mapView.addAnnotation(annotation)
             }
+            
         }
        
+    }
+    
+   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // first ensure that it really is an EventAnnotation:
+        if let eventAnnotation = view.annotation as? EventAnnotation {
+//            let theEvent = eventAnnotation
+            if let viewController = storyboard?.instantiateViewController(identifier: "CookDetailViewController") as? CookDetailViewController {
+                       navigationController?.pushViewController(viewController, animated: true)
+                }
+            }
+        view.isSelected = false
     }
     
     func searchCompleted() {

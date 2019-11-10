@@ -14,32 +14,28 @@ import PullUpController
 class FoodDetailCell: UITableViewCell {
     
     @IBOutlet weak var foodImage: UIImageView!
-    @IBOutlet weak var meal: UILabel!
     @IBOutlet weak var cook: UILabel!
     @IBOutlet weak var stars: UILabel!
-    @IBOutlet weak var price: UILabel!
+
 }
 
-class FoodListPullUpController: PullUpController {
+class CookListPullUpController: PullUpController {
     
     enum InitialState {
          case contracted
          case expanded
          case zero
     }
-    
-    var items: [String] = [
-       "yo", "🐱", "🐔", "🐶", "🦊", "🐵", "🐼", "🐷", "💩", "🐰",
-       "🤖", "🦄", "🐻", "🐲", "🦁", "💀", "🐨", "🐯", "👻", "🦖",
-    ]
-     
-    
+         
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+    var picker = UIPickerView()
+    var toolBar = UIToolbar()
+    var searchViewModel = SearchViewModel()
+
     var initialState: InitialState = .contracted
-    
+    var cooks: [Cook] = []
     
     var initialPointOffset: CGFloat {
         switch initialState {
@@ -61,21 +57,31 @@ class FoodListPullUpController: PullUpController {
         super.viewDidLoad()
         
         portraitSize = CGSize(width: min(UIScreen.main.bounds.width, UIScreen.main.bounds.height),
-                              height: bodyView.frame.maxY - 175)
+                              height: bodyView.frame.maxY - 150)
         landscapeFrame = CGRect(x: 5, y: 50, width: 280, height: 300)
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
     }
     
     override func loadView() {
         super.loadView()
-        
+        tableView.reloadData()
     }
 
+    @IBAction func sortTapped(_ sender: Any) {
+
+    }
+    
+    @IBAction func filterTapped(_ sender: Any) {
+        if let viewController = storyboard?.instantiateViewController(identifier: "FilterViewController") as? FilterViewController {
+                   navigationController?.pushViewController(viewController, animated: true)
+            }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         view.layer.cornerRadius = 12
     }
         
@@ -138,29 +144,31 @@ class FoodListPullUpController: PullUpController {
 
 }
 
-extension FoodListPullUpController: UITableViewDataSource {
+extension CookListPullUpController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 3
+            return self.cooks.count
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodDetailCell", for: indexPath) as! FoodDetailCell
             
-            // let item = self.items[indexPath.item]
-            cell.cook?.text = "Brad Pitt"
-            cell.price?.text = "$5.99"
-
-            cell.meal?.text = "Pad thai"
-            cell.stars?.text = "5/5 rating"
+            let item = self.cooks[indexPath.item]
+            cell.cook?.text = item.displayName
+            cell.stars?.text = "Rating: " + String(round(item.rating * 4.0)/4.0)
     //        cell.foodImage?.image = UIImage(named: "flame")
             return cell
         }
+    
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return "Cooks"
+        }
 }
 
-extension FoodListPullUpController: UITableViewDelegate {
+extension CookListPullUpController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
-        if let viewController = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
+        if let viewController = storyboard?.instantiateViewController(identifier: "CookDetailViewController") as? CookDetailViewController {
+            let cook = self.cooks[indexPath.item]
+            viewController.cook = cook
             navigationController?.pushViewController(viewController, animated: true)
         }
     }

@@ -16,27 +16,43 @@ struct SecretKey: Codable{
 
 class OrderCell: UITableViewCell {
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var price: UILabel!
 }
 
 class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardNum: UILabel!
+    @IBOutlet weak var cardType: UILabel!
     @IBOutlet weak var addCardButton: UIButton!
+    @IBOutlet weak var dollar: UILabel!
     var paymentMethod = STPPaymentMethod()
+    var cartItems : [CartItem] = []
     var clientSecret = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cardNum.isHidden = true
+        cardType.isHidden = true
+        cartItems = CartViewModel.cartItems
+        tableView.delegate = self
+        tableView.dataSource = self
+        print(cartItems)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("view did appear")
+        cartItems = CartViewModel.cartItems
+        tableView.reloadData()
     }
             
     @IBAction func payTapped(_ sender: Any) {
         let paymentIntentParams = STPPaymentIntentParams(clientSecret: self.clientSecret)
         paymentIntentParams.paymentMethodId = paymentMethod.stripeId
         let paymentManager = STPPaymentHandler.shared()
-        paymentManager.confirmPayment(withParams: paymentIntentParams, authenticationContext: self, completion: { (status, paymentIntent, error) in
+        paymentManager.confirmPayment(paymentIntentParams, with: self, completion: { (status, paymentIntent, error) in
              switch (status) {
                case .failed:
                    print("error")
@@ -46,6 +62,14 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                    print("canceled")
                    break
                case .succeeded:
+                    APIClient.sharedClient.completePayment(cartId: "FAKE100", completionHandler: { response, error  in
+                        print(response)
+                        let alertController = UIAlertController(title: "Purchase successful", message: "Get ready for yummy food!", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                            alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                        self.clearCart()
+                    })
                    print("success")
                    break
              @unknown default:
@@ -81,16 +105,22 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         print(self.clientSecret)
         addCardButton.isHidden = true
         self.paymentMethod = paymentMethod
-        cardNum.text? = paymentMethod.card?.last4 ?? "error"
+        cardType.text? = "Expires: " + String(paymentMethod.card?.expYear ?? -1)
+        cardNum.text? = "Number: **** **** **** " + (paymentMethod.card?.last4 ?? "error")
         cardNum.isHidden = false
-    
-        
+        cardType.isHidden = false
     }
         
             
     func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
         dismiss(animated: true)
     }
+    
+    func clearCart() {
+        cartItems = CartViewModel.sharedCart.paymentCompleted()
+        dollar.text? = "$0.00"
+    }
+    
         
 }
 
@@ -98,4 +128,34 @@ extension OrderViewController: STPAuthenticationContext {
     func authenticationPresentingViewController() -> UIViewController {
         return self
     }
+}
+
+extension OrderViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cartItems.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
+        let cartItem = self.cartItems[indexPath.item]
+        cell.name?.text = cartItem.name
+        cell.price?.text = "$" + String(cartItem.price)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.cartItems = CartViewModel.sharedCart.removeFromCart(id: self.cartItems[indexPath.item].id)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("delete")
+        }
+    }
+        
+}
+
+extension OrderViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         return "Cart"
+     }
 }
