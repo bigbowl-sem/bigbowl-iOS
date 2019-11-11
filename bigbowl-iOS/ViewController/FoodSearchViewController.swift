@@ -87,8 +87,8 @@ class FoodSearchViewController: UIViewController, UIPickerViewDataSource, UIPick
         locationManager.delegate = self
         
         checkLocationServices()
-        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-        mapView.setRegion(coordinateRegion, animated: true)
+       /* let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+        mapView.setRegion(coordinateRegion, animated: true)*/
         APIClient.sharedClient.getCooksInArea(coordinates: locationManager.location!){ response, error in
             if let response = response {
                 do {

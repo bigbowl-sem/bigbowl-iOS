@@ -12,6 +12,14 @@ import GoogleSignIn
 class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var btnGoogleSignIn:UIButton!
+    @IBOutlet weak var userEmailTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userMobileTextField: UITextField!
+    
+    @IBOutlet weak var userEmailLoginTextField: UITextField!
+    @IBOutlet weak var userPasswordLoginTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +30,163 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func loginButtonTapped(_ sender: Any) {
+            
+            let userLoginEmail = userEmailLoginTextField.text;
+            let userLoginPassword = userPasswordLoginTextField.text;
+            var   userEmailStored = "";
+            var   userPasswordStored = "";
+            var cook = false;
+    //        var userEmailStored: String;
+        //    var userPasswordStored: String;
+            
+            
+            APIClient.sharedClient.getAccount(accountId: userLoginEmail!){ response, error in
+                //print("I am here")
+                if let response = response {
+                    do {
+                        
+                        let result = try JSONDecoder().decode(Account.self, from: response.data!)
+                        print("accountId", result.accountId)
+                         cook = result.cook;
+                         userEmailStored = result.accountId;
+                        userPasswordStored = result.password;
+                        
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                    // let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
+                     //let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
+                     print (userEmailStored)
+                     print(userPasswordStored)
+                        if (cook == false)
+                        {
+                          self.displayMyAlertMessage(userMessage: "You have not registered as a cook with BigBowl.Please Sign up");
+                        }
+                     if(userEmailStored == userLoginEmail)
+                     {
+                         if(userPasswordStored == userLoginPassword)
+                         {
+                             // Login is successfull
+                             UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
+                             UserDefaults.standard.synchronize();
+                             
+                             //self.dismiss(animated: true, completion:nil);
+                             let userLoggedIn = UserDefaults.standard.string(forKey: "isUserLoggedIn");
+                             if((userLoggedIn) != nil)
+                             {
+                                 let storyboard = UIStoryboard(name: "Cook", bundle: nil)
+                                 let vc = storyboard.instantiateInitialViewController()!
+                                 vc.modalPresentationStyle = .fullScreen
+                                 self.present(vc, animated: true, completion: nil)
+                             }
+                         }else
+                         {
+                                      // Display alert message
+                            self.displayMyAlertMessage(userMessage: "Please verify the password entered");
+                                      return;
+                                  }
+                         
+                     }else
+                     
+                     {
+                                      // Display alert message
+                        self.displayMyAlertMessage(userMessage: "Email id does not exist in the system");
+                                      return;
+                                  }
+             
+                    }
+               catch let parsingError {
+                        print("Error", parsingError)
+                self.displayMyAlertMessage(userMessage: "Email id does not exist in the system");
+                    }
+                
+                }
+            }
+            
+        }
+    
+    
+    
+    @IBAction func registerButtonTapped(_ sender: Any) {
+    
+       let userEmail = userEmailTextField.text;
+       let userPassword = userPasswordTextField.text;
+       let userRepeatPassword = repeatPasswordTextField.text;
+       let userName = userNameTextField.text;
+       let userMobile = userMobileTextField.text;
+       let defaultValue = false;
+       
+    
+       // Check for empty fields
+    if (userEmail?.isEmpty ?? defaultValue || userPassword?.isEmpty ?? defaultValue || userRepeatPassword?.isEmpty ?? defaultValue )
+       {
+           // Display alert message
+        displayMyAlertMessage(userMessage: "Email and password are required");
+           return;
+       }
+       
+       //Check if passwords match
+       if(userPassword != userRepeatPassword)
+       {
+          // Display an alert message
+        displayMyAlertMessage(userMessage: "Passwords do not match");
+           return;
+       }
+     
+       // Store data. Will be replaced with API call later
+    APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: true, isCook: true){ response, error in
+        print("I am here")
+        if let response = response {
+            do {
+                //here dataResponse received from a network request
+                let decoder = JSONDecoder()
+                let accounts = try decoder.decode([Account].self, from: response.data!) //Decode JSON Response Data
+                 for account in accounts {
+                                      
+                    print(account.accountId)
+                                       
+                                   }
+                
+            
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+        }
     }
-    */
+     
+    
+    
+    
+    //UserDefaults.standard.set(userEmail,forKey:"userEmail");
+    //UserDefaults.standard.set(userPassword,forKey:"userPassword");
+   // UserDefaults.standard.set(userName,forKey:"userName");
+    //UserDefaults.standard.set(userMobile,forKey:"userMobile");
+    //UserDefaults.standard.synchronize();
+    
+    
+           // Display alert message with confirmation.
+    var myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle: UIAlertController.Style.alert);
+           
+    let okAction = UIAlertAction(title:"Ok", style:UIAlertAction.Style.default){ action in self.dismiss(animated: true, completion:nil);
+           }
+           myAlert.addAction(okAction);
+    //self.present(myAlert, animated:true, completion:nil);
+    
+    let storyboard = UIStoryboard(name: "Cook", bundle: nil)
+           let vc = storyboard.instantiateInitialViewController() as! UIViewController
+           vc.modalPresentationStyle = .fullScreen
+           present(vc, animated: true, completion: nil)
+    
+       }
+    
+    
+    
+    func displayMyAlertMessage(userMessage:String)
+    {
+     var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle: UIAlertController.Style.alert);
+     let okAction = UIAlertAction(title:"Ok", style:UIAlertAction.Style.default, handler:nil);
+        myAlert.addAction(okAction);
+     self.present(myAlert, animated:true, completion:nil);
+    }
     
     @objc func signinUserUsingGoogle(_ sender: UIButton) {
            

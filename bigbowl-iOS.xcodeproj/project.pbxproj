@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08D906AF23791284008B6B23 /* medys-chef-competition.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08D906AE23791284008B6B23 /* medys-chef-competition.jpg */; };
 		4A1E3F462360379B00B15DF4 /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F452360379B00B15DF4 /* FoodSearchViewController.swift */; };
 		4A1E3F482360466A00B15DF4 /* FoodListPullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F472360466A00B15DF4 /* FoodListPullUpController.swift */; };
 		4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE6662355A1BF006D54FB /* APIClient.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		08D906AE23791284008B6B23 /* medys-chef-competition.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "medys-chef-competition.jpg"; sourceTree = "<group>"; };
 		1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.release.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		4A1E3F452360379B00B15DF4 /* FoodSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
 		4A1E3F472360466A00B15DF4 /* FoodListPullUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListPullUpController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		4A3CE6652355A1A1006D54FB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				08D906AE23791284008B6B23 /* medys-chef-competition.jpg */,
 				4A3CE6662355A1BF006D54FB /* APIClient.swift */,
 				4AA91B572366AEDA00F09E4B /* credentials.plist */,
 			);
@@ -229,6 +232,7 @@
 				4A51086E23551A6D009B70E7 /* Assets.xcassets in Resources */,
 				4A3CE6692355A290006D54FB /* Pods-bigbowl-iOS.release.xcconfig in Resources */,
 				4AEA0322235F9D7F00F94AEF /* Cook.storyboard in Resources */,
+				08D906AF23791284008B6B23 /* medys-chef-competition.jpg in Resources */,
 				4A51086C23551A6B009B70E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
