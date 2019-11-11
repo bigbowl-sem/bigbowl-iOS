@@ -133,8 +133,7 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
        }
      
        // Store data. Will be replaced with API call later
-    APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: true, isCook: true){ response, error in
-        print("I am here")
+    APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: false, isCook: true){ response, error in
         if let response = response {
             do {
                 //here dataResponse received from a network request
