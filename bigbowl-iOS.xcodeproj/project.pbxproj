@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A15F0E72378FF7800722CDC /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15F0E62378FF7800722CDC /* DecimalFormatter.swift */; };
 		4A1E3F482360466A00B15DF4 /* CookListPullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */; };
 		4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE6662355A1BF006D54FB /* APIClient.swift */; };
 		4A3CE6682355A28D006D54FB /* Pods-bigbowl-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.release.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4A15F0E62378FF7800722CDC /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookListPullUpController.swift; sourceTree = "<group>"; };
 		4A3CE6662355A1BF006D54FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bigbowl-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			children = (
 				4A3CE6662355A1BF006D54FB /* APIClient.swift */,
 				4AA91B572366AEDA00F09E4B /* credentials.plist */,
+				4A15F0E62378FF7800722CDC /* DecimalFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */,
 				4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */,
 				4A9284302373EE3F009A1886 /* CartItem.swift in Sources */,
+				4A15F0E72378FF7800722CDC /* DecimalFormatter.swift in Sources */,
 				4A92842C2373820C009A1886 /* CartViewModel.swift in Sources */,
 				4A51086323551A6B009B70E7 /* AppDelegate.swift in Sources */,
 				4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */,

@@ -45,6 +45,13 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         print("view did appear")
         cartItems = CartViewModel.cartItems
+        
+         var total = 0.00
+         for item in cartItems {
+             total += item.price
+         }
+        dollar.text? = "$" + DecimalFormatter.converToDoubleString(theDouble: total)
+        
         tableView.reloadData()
     }
             
@@ -118,7 +125,6 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
     func clearCart() {
         cartItems = CartViewModel.sharedCart.paymentCompleted()
-        dollar.text? = "$0.00"
     }
     
         
@@ -139,7 +145,7 @@ extension OrderViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
         let cartItem = self.cartItems[indexPath.item]
         cell.name?.text = cartItem.name
-        cell.price?.text = "$" + String(cartItem.price)
+        cell.price?.text = "$" + DecimalFormatter.converToDoubleString(theDouble: cartItem.price)
         return cell
     }
     

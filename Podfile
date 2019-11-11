@@ -13,5 +13,6 @@ target 'bigbowl-iOS' do
   pod 'PullUpController'
   pod 'Google/SignIn'
   pod 'Cosmos'
+  pod 'AlamofireObjectMapper'
   
 end

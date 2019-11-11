@@ -170,14 +170,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Y3y-FU-8jY" customClass="OrderItemCell" customModule="bigbowl_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3y-FU-8jY" id="mhh-wf-Zym">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3b-bs-Wi6">
-                                                    <rect key="frame" x="20" y="12" width="42" height="21.5"/>
+                                                    <rect key="frame" x="20" y="12" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="42" id="Feu-b3-h4l"/>
                                                     </constraints>
@@ -186,7 +186,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7E-RN-d0q">
-                                                    <rect key="frame" x="314" y="11" width="42" height="21.5"/>
+                                                    <rect key="frame" x="314" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -221,6 +221,9 @@
                                     <constraint firstAttribute="width" constant="101" id="kFG-il-Zo1"/>
                                 </constraints>
                                 <state key="normal" title="Submit Review"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="nec-79-YCj" eventType="touchUpInside" id="sqW-gi-54G"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -253,6 +256,7 @@
                         <viewLayoutGuide key="safeArea" id="Y2p-Wl-vPH"/>
                     </view>
                     <connections>
+                        <outlet property="cookName" destination="8Ec-L1-7bl" id="LHr-sq-fBx"/>
                         <outlet property="cosmosStars" destination="vkn-J2-IgY" id="iiS-Xm-PqE"/>
                         <outlet property="orderDetails" destination="pjK-zF-dD0" id="XSX-IY-S8U"/>
                         <outlet property="reviewText" destination="eZ4-4F-fgO" id="deH-kv-knr"/>
@@ -656,20 +660,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OrderCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" id="EWO-oC-ZfM" customClass="OrderCell" customModule="bigbowl_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWO-oC-ZfM" id="NyD-LW-xmV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-ch-NZu">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-lt-uXf">
-                                                    <rect key="frame" x="318" y="12" width="42" height="21"/>
+                                                    <rect key="frame" x="318" y="12" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

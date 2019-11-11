@@ -21,12 +21,12 @@ class FoodDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         foodTitle.text = item?.name
-        priceTitle.text = String(round((item!.unitPrice ?? 0 * 4.0)/4.0))
+        priceTitle.text = "$" + DecimalFormatter.converToDoubleString(theDouble: item!.unitPrice)
         cookName.text = item?.description
     }
     
     @IBAction func toCartTapped(_ sender: Any) {
-        CartViewModel.sharedCart.addToCart(id: "1234", name: "test", price: 4.99)
+        CartViewModel.sharedCart.addToCart(id: item!.itemId!, name: item!.name!, price: item!.unitPrice)
     }
 
 }

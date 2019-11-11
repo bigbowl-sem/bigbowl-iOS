@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct CartItem {
+class CartItem: Mappable, Codable {
+    var name: String = ""
+    var id: String = ""
+    var price: Double = 0.0
     
-    var name: String
-    var id: String
-    var price: Double
+    required init?(map: Map) {
+          
+    }
     
     public init?(_ pList: [String: Any]?) {
 
@@ -31,5 +35,11 @@ struct CartItem {
         return ["id": self.id,
                 "name": self.name,
                 "price": self.price]
+    }
+    
+    func mapping(map: Map) {
+       self.name <- map["name"]
+       self.id <- map["itemId"]
+       self.price <- map["price"]
     }
 }
