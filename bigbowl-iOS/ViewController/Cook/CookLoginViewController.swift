@@ -46,12 +46,13 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
                 if let response = response {
                     do {
                         
-                        let result = try JSONDecoder().decode(Account.self, from: response.data!)
+                        let result = try! JSONDecoder().decode(CurrentUser.self, from: response.data!)
                         print("accountId", result.accountId)
-                         cook = result.cook;
-                         userEmailStored = result.accountId;
-                        userPasswordStored = result.password;
-                        
+                        cook = result.isCook ?? false
+                        userEmailStored = result.accountId ?? ""
+                        userPasswordStored = result.password ?? ""
+                        CurrentUser.setSharedCurrentUser(user: result)
+
 
                     // let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
                      //let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
@@ -138,7 +139,7 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
             do {
                 //here dataResponse received from a network request
                 let decoder = JSONDecoder()
-                let accounts = try decoder.decode([Account].self, from: response.data!) //Decode JSON Response Data
+                let accounts = try decoder.decode([CurrentUser].self, from: response.data!) //Decode JSON Response Data
                  for account in accounts {
                                       
                     print(account.accountId)
@@ -219,6 +220,4 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
             
            }
        }
-    
-
 }

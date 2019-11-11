@@ -25,6 +25,7 @@ class PersonalAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     var orders: [Order] = []
     
@@ -32,7 +33,7 @@ class PersonalAccountViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        APIClient.sharedClient.getOrders(userId: "Fake0") { response, error in
+        APIClient.sharedClient.getOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
@@ -44,6 +45,9 @@ class PersonalAccountViewController: UIViewController {
                 }
             }
         }
+        self.name.text = CurrentUser.sharedCurrentUser.firstName
+        self.ratingLabel.text = ""
+        
     }
     
     @IBAction func settingsTapped(_ sender: Any) {

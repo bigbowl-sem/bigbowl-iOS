@@ -114,6 +114,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="name" destination="b6F-3N-gp8" id="5L2-Fo-DxU"/>
+                        <outlet property="rating" destination="k3e-KR-Rjq" id="Y9h-7Z-VVQ"/>
                         <outlet property="tableView" destination="cCX-pw-haK" id="IEq-5N-Bdh"/>
                     </connections>
                 </viewController>

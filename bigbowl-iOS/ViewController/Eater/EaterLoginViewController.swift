@@ -9,16 +9,7 @@
 
 import UIKit
 import GoogleSignIn
-
-struct Account: Decodable{
-    var accountId: String
-    var firstName: String
-    var password:String
-    var cook: Bool
-    var eater : Bool
-    
-}
-
+                
 class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var btnGoogleSignIn:UIButton!
@@ -56,10 +47,10 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
             if let response = response {
                 do {
                     
-                    let result = try JSONDecoder().decode(Account.self, from: response.data!)
-                    print("accountId", result.accountId)
-                     userEmailStored = result.accountId;
-                    userPasswordStored = result.password;
+                    let result = try JSONDecoder().decode(CurrentUser.self, from: response.data!)
+                    CurrentUser.setSharedCurrentUser(user: result)
+                     userEmailStored = result.accountId ?? ""
+                    userPasswordStored = result.password ?? ""
                     
 
                 // let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
@@ -147,7 +138,7 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
                 do {
                     //here dataResponse received from a network request
                     let decoder = JSONDecoder()
-                    let accounts = try decoder.decode([Account].self, from: response.data!) //Decode JSON Response Data
+                    let accounts = try decoder.decode([CurrentUser].self, from: response.data!) //Decode JSON Response Data
                      for account in accounts {
                                           
                         print(account.accountId)

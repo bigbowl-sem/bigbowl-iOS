@@ -20,6 +20,14 @@ class CookPersonalViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var name: UILabel!
+    
+    override func viewDidLoad() {
+        self.name.text = CurrentUser.sharedCurrentUser.firstName ?? ""
+        self.rating.text = ""
+    }
+    
     @IBAction func settingsTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
