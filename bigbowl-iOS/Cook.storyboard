@@ -19,7 +19,7 @@
                                 <rect key="frame" x="20" y="262" width="374" height="527"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="103" id="W2c-th-crZ" customClass="EaterReviewCell" customModule="bigbowl_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EaterReviewCell" rowHeight="103" id="W2c-th-crZ" customClass="EaterReviewCell" customModule="bigbowl_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W2c-th-crZ" id="sPr-1b-gd6">
@@ -60,12 +60,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cook" destination="BwO-1c-fPo" id="f4T-gi-7vA"/>
-                                            <outlet property="cookImage" destination="yYq-yK-mkC" id="TkN-dx-NZU"/>
                                             <outlet property="eaterDisplayName" destination="BwO-1c-fPo" id="EVT-zV-y4k"/>
                                             <outlet property="eaterImage" destination="yYq-yK-mkC" id="XLx-eJ-z5q"/>
                                             <outlet property="eaterRating" destination="nzn-in-HqI" id="Atp-1p-DL4"/>
-                                            <outlet property="rating" destination="nzn-in-HqI" id="h5v-od-Ifn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -143,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="-1526" y="-271"/>
         </scene>
-        <!--Orders View Controller-->
+        <!--Orders-->
         <scene sceneID="EtA-0H-mwM">
             <objects>
                 <viewController id="ZFu-Hr-xWJ" customClass="OrdersViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,13 +153,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TNx-dY-faa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveOrderDetailCell" id="TNx-dY-faa" customClass="ActiveOrderDetailCell" customModule="bigbowl_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TNx-dY-faa" id="DTY-4Q-tyw">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PickUpName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ES-sT-P0a">
+                                                    <rect key="frame" x="20" y="11" width="100" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pickupName" destination="3ES-sT-P0a" id="CRZ-QF-qIU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -170,7 +179,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cIc-ua-6Fh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Duo-dZ-cKO"/>
+                    <navigationItem key="navigationItem" title="Orders" id="Duo-dZ-cKO"/>
+                    <connections>
+                        <outlet property="tableView" destination="j0K-ej-MSQ" id="Htu-nz-Xi4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRd-cb-hJb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -191,9 +203,10 @@
             </objects>
             <point key="canvasLocation" x="1480" y="-249"/>
         </scene>
-        <!--Cook View Controller-->
+        <!--Menu-->
         <scene sceneID="NY0-w6-UkJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQV-Cd-FsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="ayU-5u-wgq" customClass="CookViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMe-hI-iiJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -204,7 +217,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell1" rowHeight="137" id="oH1-1f-06K" customClass="MenuCell" customModule="bigbowl_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CookMenuCell" rowHeight="137" id="oH1-1f-06K" customClass="CookMenuCell" customModule="bigbowl_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oH1-1f-06K" id="Is5-UK-as0">
@@ -233,13 +246,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Purchased by 4 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqx-AI-aaB">
-                                                    <rect key="frame" x="119" y="70" width="176" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 portions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2us-MD-AHz">
                                                     <rect key="frame" x="121" y="41" width="86" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -255,7 +261,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="foodImage" destination="r32-g4-J75" id="Rtt-du-qaU"/>
+                                            <outlet property="foodImage" destination="r32-g4-J75" id="ccZ-D7-m67"/>
+                                            <outlet property="name" destination="BHh-o8-p3E" id="7tb-Jh-rs2"/>
+                                            <outlet property="price" destination="KN7-X9-1jm" id="haV-aH-9fE"/>
+                                            <outlet property="quantity" destination="2us-MD-AHz" id="6Ic-EZ-usp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -264,21 +273,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="i5e-E0-sX9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SMW-Z7-MdZ">
+                    <navigationItem key="navigationItem" title="Menu" id="SMW-Z7-MdZ">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="qCb-eM-bx1">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="Yoe-5H-f43" kind="popoverPresentation" popoverAnchorBarButtonItem="qCb-eM-bx1" id="XtB-wS-Qfi">
+                                <segue destination="Yoe-5H-f43" kind="popoverPresentation" identifier="addItem" popoverAnchorBarButtonItem="qCb-eM-bx1" id="XtB-wS-Qfi">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activeItemsTable" destination="Nbv-qg-wjg" id="UQH-kc-Bjr"/>
+                        <outlet property="tableView" destination="Nbv-qg-wjg" id="3k5-M5-xT0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aQV-Cd-FsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="595.6521739130435" y="-926.11607142857133"/>
         </scene>

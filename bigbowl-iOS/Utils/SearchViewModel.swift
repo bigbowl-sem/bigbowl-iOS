@@ -32,6 +32,7 @@ class SearchViewModel {
                     //here dataResponse received from a network request
                     let decoder = JSONDecoder()
                     self.cooks = try decoder.decode([Cook].self, from: response.data!) //Decode JSON Response Data
+                    print(self.cooks)
                     completionHandler(self.cooks)
                 } catch let parsingError {
                     print("Error", parsingError)

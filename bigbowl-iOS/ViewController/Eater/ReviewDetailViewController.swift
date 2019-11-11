@@ -42,8 +42,6 @@ class ReviewDetailViewController: UIViewController {
                        self.cosmosStars.rating = theReview.rating ?? 3.0
                        self.reviewText.text = theReview.textBody ?? "Enter your review here..."
                     }
-           
-                    
                     
                 } catch let parsingError {
                     print("Error", parsingError)
@@ -56,6 +54,7 @@ class ReviewDetailViewController: UIViewController {
     @IBAction func submitTapped(_ sender: Any) {
         var rating = cosmosStars.rating
         var text = reviewText.text!
+        order!.eaterConfirmed = true
         APIClient.sharedClient.postReview(orderId: order!.orderId, rating: rating, text: text) { response, error in
             print("REVIEWED! ", response)
         }

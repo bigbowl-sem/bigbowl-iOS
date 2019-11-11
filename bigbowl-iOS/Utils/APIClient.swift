@@ -62,10 +62,11 @@ class APIClient: NSObject {
         print("completing payment for cook", cookId)
         var parameters = [String:Any]()
         parameters["orderId"] = "null"
-        parameters["eaterId"] = "Fake0"
+        parameters["eaterId"] = cartId
         parameters["cookId"] = cookId
         parameters["datetime"] = nil
         parameters["pickUpName"] = "Phil"
+        parameters["cookDisplayName"] = ""
         parameters["readyTime"] = nil
         parameters["pickUpContact"] = "2674713914"
         parameters["pickUpTime"] = nil
@@ -125,7 +126,7 @@ class APIClient: NSObject {
         }
     }
     
-    func getOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+    func getEaterOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("order/eaterId/" + userId)
         print(url)
         AF.request(url, method: .get)
@@ -143,6 +144,25 @@ class APIClient: NSObject {
                 }
             }
     }
+    
+    func getCookOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+           let url = baseURL.appendingPathComponent("order/cookId/" + userId)
+           print(url)
+           AF.request(url, method: .get)
+               .validate(statusCode: 200..<300)
+               .responseString{ response in
+                   switch response.result {
+                   case .success:
+                       print(response)
+                       completionHandler(response, nil)
+                       break
+                   case .failure(let error):
+                       print(error)
+                       completionHandler(nil, error)
+                       break
+                   }
+               }
+       }
     
     func postCart(cartId: String, cartItems: [CartItem], totalPrice: Double, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("cart")
@@ -310,6 +330,51 @@ class APIClient: NSObject {
                   }
           }
       }
+    
+    func postNewMenuItem(menuId: String, name: String, description: String, quantity: Int, unitPrice: Double, cuisine: String, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("menu/item")
+        var parameters = [String:Any]()
+        parameters["menuId"] = menuId
+        parameters["name"] = name
+        parameters["description"] = description
+        parameters["quanitity"] = quantity
+        parameters["unitPrice"] = unitPrice
+        parameters["cuisine"] = cuisine
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                switch response.result {
+                    case .success:
+                        print(response)
+                    completionHandler(response, nil)
+                    break
+                    case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+        }
+        
+    }
+    
+    func getActiveCookOrders(cookId: String, isConfirmed: Bool, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("order/cookId/" + cookId + "/" + String(isConfirmed))
+        AF.request(url, method: .get)
+                 .validate(statusCode: 200..<300)
+                 .responseString { response in
+                     switch response.result {
+                         case .success:
+                             print(response)
+                         completionHandler(response, nil)
+                         break
+                         case .failure(let error):
+                         print(error)
+                         completionHandler(nil, error)
+                         break
+                     }
+             }
+    }
       
     
     

@@ -35,6 +35,7 @@
 		4ABC35972379588400379DA5 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC35962379588400379DA5 /* OrderDetailViewController.swift */; };
 		4ABC3599237958D100379DA5 /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC3598237958D100379DA5 /* MenuItemDetailViewController.swift */; };
 		4ABC359B23795A6600379DA5 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC359A23795A6600379DA5 /* CurrentUser.swift */; };
+		4ABC359D23796E6600379DA5 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC359C23796E6600379DA5 /* MenuViewModel.swift */; };
 		4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA0319235F97FC00F94AEF /* LoginViewController.swift */; };
 		4AEA0322235F9D7F00F94AEF /* Cook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEA0321235F9D7F00F94AEF /* Cook.storyboard */; };
 		4AF3F9DE2377644D00847D4B /* CookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */; };
@@ -75,6 +76,7 @@
 		4ABC35962379588400379DA5 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		4ABC3598237958D100379DA5 /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 		4ABC359A23795A6600379DA5 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		4ABC359C23796E6600379DA5 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewModel.swift; path = "bigbowl-iOS/Model/MenuViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		4AEA0319235F97FC00F94AEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AEA0321235F9D7F00F94AEF /* Cook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cook.storyboard; sourceTree = "<group>"; };
 		4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSearchViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				4A9284292372AC55009A1886 /* SearchViewModel.swift */,
 				4A92842B2373820C009A1886 /* CartViewModel.swift */,
 				4AF3F9E1237775D200847D4B /* PersonalAccountViewModel.swift */,
+				4ABC359C23796E6600379DA5 /* MenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				4ABC35972379588400379DA5 /* OrderDetailViewController.swift in Sources */,
 				4AF3F9E2237775D200847D4B /* PersonalAccountViewModel.swift in Sources */,
 				4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */,
+				4ABC359D23796E6600379DA5 /* MenuViewModel.swift in Sources */,
 				4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */,
 				4ABC35932379540600379DA5 /* OrdersViewController.swift in Sources */,
 				4A9284302373EE3F009A1886 /* CartItem.swift in Sources */,

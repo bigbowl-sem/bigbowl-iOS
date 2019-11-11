@@ -52,12 +52,6 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
                         userEmailStored = result.accountId ?? ""
                         userPasswordStored = result.password ?? ""
                         CurrentUser.setSharedCurrentUser(user: result)
-
-
-                    // let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
-                     //let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
-                     print (userEmailStored)
-                     print(userPasswordStored)
                         if (cook == false)
                         {
                           self.displayMyAlertMessage(userMessage: "You have not registered as a cook with BigBowl.Please Sign up");
@@ -86,20 +80,14 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
                                       return;
                                   }
                          
-                     }else
-                     
-                     {
-                                      // Display alert message
+                     } else {
+                        // Display alert message
                         self.displayMyAlertMessage(userMessage: "Email id does not exist in the system");
-                                      return;
-                                  }
+                        return;
+                    }
              
                     }
-               catch let parsingError {
-                        print("Error", parsingError)
-                self.displayMyAlertMessage(userMessage: "Email id does not exist in the system");
-                    }
-                
+        
                 }
             }
             
@@ -153,14 +141,7 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
         }
     }
      
-    
-    
-    
-    //UserDefaults.standard.set(userEmail,forKey:"userEmail");
-    //UserDefaults.standard.set(userPassword,forKey:"userPassword");
-   // UserDefaults.standard.set(userName,forKey:"userName");
-    //UserDefaults.standard.set(userMobile,forKey:"userMobile");
-    //UserDefaults.standard.synchronize();
+
     
     
            // Display alert message with confirmation.

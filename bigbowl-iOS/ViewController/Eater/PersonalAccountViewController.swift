@@ -19,6 +19,9 @@ class ReviewCell: UITableViewCell {
 class Order: Codable {
     var orderId: String
     var cookDisplayName: String
+    var pickUpName: String
+    var eaterConfirmed: Bool
+    var cookConfirmed: Bool
 }
 
 class PersonalAccountViewController: UIViewController {
@@ -33,11 +36,12 @@ class PersonalAccountViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        APIClient.sharedClient.getOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
+        APIClient.sharedClient.getEaterOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
                     self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                    print(CurrentUser.sharedCurrentUser.eaterId!)
                     print("orders ", self.orders)
                     self.tableView.reloadData()
                 } catch let parsingError {
@@ -49,6 +53,7 @@ class PersonalAccountViewController: UIViewController {
         self.ratingLabel.text = ""
         
     }
+    
     
     @IBAction func settingsTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
@@ -65,7 +70,11 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
         
         let item = self.orders[indexPath.item]
         cell.cook?.text = item.cookDisplayName
-        cell.rating?.text = "Not yet rated"
+        var rated = "Not Rated"
+        if item.eaterConfirmed {
+            rated = "Rated"
+        }
+        cell.rating?.text = rated
         return cell
     }
     
