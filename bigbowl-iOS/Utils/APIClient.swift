@@ -42,7 +42,7 @@ class APIClient: NSObject {
         let url = baseURL.appendingPathComponent("payment")
         var parameters = [String:Any]()
         parameters["cartId"] = "Fake0"
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
                   .validate(statusCode: 200..<300)
                   .responseString { response in
                     switch response.result {
@@ -70,7 +70,7 @@ class APIClient: NSObject {
         parameters["pickUpContact"] = "2674713914"
         parameters["pickUpTime"] = nil
         
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
                   .validate(statusCode: 200..<300)
                   .responseString { response in
                     switch response.result {
@@ -93,7 +93,7 @@ class APIClient: NSObject {
         parameters["lat"] = coordinates.coordinate.latitude
         parameters["radius"] = 1
         
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString))
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString))
             .validate(statusCode: 200..<300)
             .responseString { response in
                 switch response.result {
@@ -110,7 +110,7 @@ class APIClient: NSObject {
     
     func getMenu(menuId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("menu/" + menuId)
-        Alamofire.request(url, method: .get)
+        AF.request(url, method: .get)
             .validate(statusCode: 200..<300)
             .responseString { response in
                 switch response.result {
@@ -128,7 +128,7 @@ class APIClient: NSObject {
     func getOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("order/eaterId/" + userId)
         print(url)
-        Alamofire.request(url, method: .get)
+        AF.request(url, method: .get)
             .validate(statusCode: 200..<300)
             .responseString{ response in
                 switch response.result {
@@ -150,7 +150,7 @@ class APIClient: NSObject {
         parameters["cartId"] = cartId
         parameters["checkoutItems"] = []
         parameters["totalPrice"] = totalPrice
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .responseString{ response in
                 switch response.result {
@@ -170,7 +170,7 @@ class APIClient: NSObject {
         var parameters = [String:Any]()
         parameters["cartId"] = cartId
         parameters["itemId"] = itemId
-        Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .responseString{ response in
                 switch response.result {
@@ -190,7 +190,7 @@ class APIClient: NSObject {
         var parameters = [String:Any]()
         parameters["cartId"] = cartId
         parameters["itemId"] = itemId
-        Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .responseString{ response in
                 switch response.result {
@@ -215,7 +215,7 @@ class APIClient: NSObject {
             parameters["cookId"] = "Fake1"
             parameters["eaterId"] = "Fake0"
 
-         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
              .validate(statusCode: 200..<300)
              .responseString{ response in
                  switch response.result {
@@ -232,7 +232,7 @@ class APIClient: NSObject {
     
     func getReview(orderId: String, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("review/orderId/" + orderId)
-        Alamofire.request(url, method: .get)
+        AF.request(url, method: .get)
               .validate(statusCode: 200..<300)
               .responseString{ response in
                   switch response.result {
@@ -295,7 +295,7 @@ class APIClient: NSObject {
           parameters["lat"] = coordinates.coordinate.latitude
           parameters["radius"] = 1*/
           
-          Alamofire.request(url, method: .get)
+          AF.request(url, method: .get)
               .validate(statusCode: 200..<300)
               .responseString { response in
                   switch response.result {
