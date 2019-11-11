@@ -22,6 +22,7 @@ class OrderCell: UITableViewCell {
 
 class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardNum: UILabel!
     @IBOutlet weak var cardType: UILabel!
@@ -39,6 +40,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         cartItems = CartViewModel.cartItems
         tableView.delegate = self
         tableView.dataSource = self
+        editButton.isHidden = true
         print(cartItems)
     }
     
@@ -85,6 +87,10 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
            })
     }
     
+    @IBAction func editTapped(_ sender: Any) {
+        self.addCardTapped(self)
+    }
+    
     @IBAction func addCardTapped(_ sender: Any) {
         let addCardViewController = STPAddCardViewController()
                 
@@ -116,6 +122,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         cardNum.text? = "Number: **** **** **** " + (paymentMethod.card?.last4 ?? "error")
         cardNum.isHidden = false
         cardType.isHidden = false
+        editButton.isHidden = false
     }
         
             
@@ -125,6 +132,8 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
     func clearCart() {
         cartItems = CartViewModel.sharedCart.paymentCompleted()
+        tableView.reloadData()
+        dollar.text = "$0.00"
     }
     
         
