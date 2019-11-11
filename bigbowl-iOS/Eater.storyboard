@@ -519,19 +519,13 @@
                                                         <constraint firstAttribute="width" constant="97" id="SnE-xd-99n"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6j-g9-HLJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6j-g9-HLJ">
                                                     <rect key="frame" x="134" y="11" width="140" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mE-cE-Jd3">
-                                                    <rect key="frame" x="134" y="76" width="101" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-ez-Om7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-ez-Om7">
                                                     <rect key="frame" x="134" y="47" width="114" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -541,23 +535,17 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="d1b-kC-HfR" secondAttribute="bottom" constant="28.5" id="65b-9w-iBW"/>
                                                 <constraint firstItem="Qy8-ez-Om7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d1b-kC-HfR" secondAttribute="trailing" constant="17" id="B9a-G9-SNP"/>
-                                                <constraint firstItem="2mE-cE-Jd3" firstAttribute="leading" secondItem="a6j-g9-HLJ" secondAttribute="leading" id="DM4-Tb-vb1"/>
                                                 <constraint firstItem="a6j-g9-HLJ" firstAttribute="leading" secondItem="d1b-kC-HfR" secondAttribute="trailing" constant="17" id="FBM-A8-Ggo"/>
                                                 <constraint firstItem="Qy8-ez-Om7" firstAttribute="top" secondItem="a6j-g9-HLJ" secondAttribute="bottom" constant="7" id="Pau-Tk-HJw"/>
-                                                <constraint firstItem="2mE-cE-Jd3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d1b-kC-HfR" secondAttribute="trailing" constant="17" id="SOU-Yf-XuX"/>
-                                                <constraint firstItem="2mE-cE-Jd3" firstAttribute="top" secondItem="Qy8-ez-Om7" secondAttribute="bottom" constant="8" id="U7F-80-XtB"/>
                                                 <constraint firstItem="a6j-g9-HLJ" firstAttribute="leading" secondItem="d1b-kC-HfR" secondAttribute="trailing" constant="17" id="idZ-8G-5Bu"/>
                                                 <constraint firstItem="d1b-kC-HfR" firstAttribute="leading" secondItem="SQL-cR-u4H" secondAttribute="leadingMargin" id="isn-k5-p3r"/>
-                                                <constraint firstItem="2mE-cE-Jd3" firstAttribute="leading" secondItem="Qy8-ez-Om7" secondAttribute="leading" id="mZc-CQ-QHz"/>
                                                 <constraint firstItem="d1b-kC-HfR" firstAttribute="top" secondItem="SQL-cR-u4H" secondAttribute="topMargin" constant="1" id="nVW-L6-FC1"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="2mE-cE-Jd3" secondAttribute="bottom" constant="29" id="xCK-nj-yXW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="foodImage" destination="d1b-kC-HfR" id="5aC-Mh-ayW"/>
                                             <outlet property="meal" destination="a6j-g9-HLJ" id="Vg7-Ue-AZM"/>
                                             <outlet property="price" destination="Qy8-ez-Om7" id="fVV-ge-ZIW"/>
-                                            <outlet property="stars" destination="2mE-cE-Jd3" id="UvP-cv-3hA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

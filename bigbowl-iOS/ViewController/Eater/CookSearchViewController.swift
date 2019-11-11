@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import CoreLocation
 
 class EventAnnotation : MKPointAnnotation {
     var theCook: Cook?
@@ -21,61 +22,39 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var mapButton: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     
-    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation? = nil
+    private let locationManager = CLLocationManager()
     let searchViewModel = SearchViewModel()
     var movedToUserLocation = false
     var cooks : [Cook] = []
         
     private var originalPullUpControllerViewSize: CGSize = .zero
-    
-    func checkLocationServices() {
-      if CLLocationManager.locationServicesEnabled() {
-        checkLocationAuthorization()
-      } else {
-        // Show alert letting the user know they have to turn this on.
-      }
-    }
-    
-    func checkLocationAuthorization() {
-      switch CLLocationManager.authorizationStatus() {
-      case .authorizedWhenInUse:
-        mapView.showsUserLocation = true
-       case .denied: // Show alert telling users how to turn on permissions
-       break
-      case .notDetermined:
-        locationManager.requestWhenInUseAuthorization()
-        mapView.showsUserLocation = true
-      case .restricted: // Show an alert letting them know what’s up
-       break
-      case .authorizedAlways:
-       break
-      }
-    }
 
+    
     override func viewDidLoad() {
         self.title = "Eat"
         mapView.delegate = self
         locationManager.delegate = self
     
-        checkLocationServices()
-        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
-            mapView.setRegion(coordinateRegion, animated: true)
-            searchViewModel.getCooks(location: locationManager.location!) { cooks in
-                for cook in cooks {
-                    let annotation = EventAnnotation()
-                    annotation.theCook = cook
-                    annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
-                    annotation.title = cook.displayName
-                    annotation.subtitle = "Good food here!"
-                    self.mapView.addAnnotation(annotation)
-                }
-                self.cooks = cooks
-                self.addPullUpController(animated: true)
+        self.startLocationServices() // This function is implemented below...
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.startUpdatingLocation()
+            if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+                 mapView.setRegion(coordinateRegion, animated: true)
+                 searchViewModel.getCooks(location: locationManager.location!) { cooks in
+                     for cook in cooks {
+                         let annotation = EventAnnotation()
+                         annotation.theCook = cook
+                         annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
+                         annotation.title = cook.displayName
+                         annotation.subtitle = "Good food here!"
+                         self.mapView.addAnnotation(annotation)
+                     }
+                     self.cooks = cooks
+                     self.addPullUpController(animated: true)
+                 }
             }
-        }
-        APIClient.sharedClient.postCart(cartId: "Fake100", cartItems: [], totalPrice: 0.00) { response, error in
-            
         }
     }
     
@@ -114,4 +93,63 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             animated: animated)
     }
     
+    
+    // Monitor location services authorization changes
+     func locationManager(_ manager: CLLocationManager,
+                             didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            break
+        case .authorizedWhenInUse, .authorizedAlways:
+             if CLLocationManager.locationServicesEnabled() {
+                 self.locationManager.startUpdatingLocation()
+            }
+        case .restricted, .denied:
+           self.alertLocationAccessNeeded()
+        }
+    
+        // Get the device's current location and assign the latest CLLocation value to your tracking variable
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            self.currentLocation = locations.last
+    
+        }
+    }
+    
+    func alertLocationAccessNeeded() {
+        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+     
+        let alert = UIAlertController(
+            title: "Need Location Access",
+             message: "Location access is required for including the location of the hazard.",
+             preferredStyle: .alert
+         )
+     
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Allow Location Access",
+                                      style: .cancel,
+                                      handler: { (alert) -> Void in
+                                        UIApplication.shared.open(settingsAppURL,
+                                                                    options: [:],
+                                                                    completionHandler: nil)
+        }))
+    
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func startLocationServices() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+     
+        let locationAuthorizationStatus = CLLocationManager.authorizationStatus()
+     
+        switch locationAuthorizationStatus {
+        case .notDetermined:
+            self.locationManager.requestWhenInUseAuthorization() // This is where you request permission to use location services
+        case .authorizedWhenInUse, .authorizedAlways:
+                if CLLocationManager.locationServicesEnabled() {
+                    self.locationManager.startUpdatingLocation()
+                }
+        case .restricted, .denied:
+            self.alertLocationAccessNeeded()
+        }
+    }
 }
