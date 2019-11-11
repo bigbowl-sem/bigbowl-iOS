@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+class EaterReviewCell: UITableViewCell {
+
+    @IBOutlet weak var eaterImage: UIImageView!
+    @IBOutlet weak var eaterDisplayName: UILabel!
+    @IBOutlet weak var eaterRating: UILabel!
+}
+
 class CookPersonalViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!

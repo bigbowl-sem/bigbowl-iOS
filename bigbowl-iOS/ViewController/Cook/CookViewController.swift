@@ -11,4 +11,7 @@ import UIKit
 
 class CookViewController: UIViewController {
     
+    @IBOutlet weak var activeItemsTable: UITableView!
+    
+    
 }
