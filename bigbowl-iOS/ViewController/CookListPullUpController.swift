@@ -154,7 +154,7 @@ extension CookListPullUpController: UITableViewDataSource {
             
             let item = self.cooks[indexPath.item]
             cell.cook?.text = item.displayName
-            cell.stars?.text = "Rating: " + String(round(item.rating * 4.0)/4.0)
+            cell.stars?.text = "Rating: " + DecimalFormatter.converToDoubleString(theDouble: item.rating)
     //        cell.foodImage?.image = UIImage(named: "flame")
             return cell
         }

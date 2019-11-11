@@ -7,29 +7,24 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct CartItem {
+class CartItem: Codable {
+    var name: String = ""
+    var cartId: String = ""
+    var unitPrice: Double = 0.0
+    var itemId: String = ""
+    var quantity: Int = 0
+    var cuisine: String = ""
+    var cookId: String = ""
+    var description: String = ""
     
-    var name: String
-    var id: String
-    var price: Double
-    
-    public init?(_ pList: [String: Any]?) {
-
-        guard let propertyList = pList,
-            let id = propertyList["id"] as? String,
-            let name = propertyList["name"] as? String,
-            let price = propertyList["price"] as? Double
-            else { return nil }
-        
-        self.id = id
+    init(name: String, id: String, unitPrice: Double, cookId: String) {
         self.name = name
-        self.price = price
+        self.cartId = id
+        self.unitPrice = unitPrice
+        self.cookId = cookId
     }
-    
-    func toPlist() -> [String: Any]? {
-        return ["id": self.id,
-                "name": self.name,
-                "price": self.price]
-    }
+
+
 }

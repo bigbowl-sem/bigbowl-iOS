@@ -22,6 +22,7 @@ class OrderCell: UITableViewCell {
 
 class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardNum: UILabel!
     @IBOutlet weak var cardType: UILabel!
@@ -39,12 +40,20 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         cartItems = CartViewModel.cartItems
         tableView.delegate = self
         tableView.dataSource = self
+        editButton.isHidden = true
         print(cartItems)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("view did appear")
         cartItems = CartViewModel.cartItems
+        
+         var total = 0.00
+         for item in cartItems {
+             total += item.unitPrice
+         }
+        dollar.text? = "$" + DecimalFormatter.converToDoubleString(theDouble: total)
+        
         tableView.reloadData()
     }
             
@@ -62,7 +71,8 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                    print("canceled")
                    break
                case .succeeded:
-                    APIClient.sharedClient.completePayment(cartId: "FAKE100", completionHandler: { response, error  in
+                print("purchasing foor from ", self.cartItems[0].cookId )
+                APIClient.sharedClient.completePayment(cartId: "FAKE100", cookId: self.cartItems[0].cookId, completionHandler: { response, error  in
                         print(response)
                         let alertController = UIAlertController(title: "Purchase successful", message: "Get ready for yummy food!", preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -76,6 +86,10 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                break
                }
            })
+    }
+    
+    @IBAction func editTapped(_ sender: Any) {
+        self.addCardTapped(self)
     }
     
     @IBAction func addCardTapped(_ sender: Any) {
@@ -109,6 +123,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
         cardNum.text? = "Number: **** **** **** " + (paymentMethod.card?.last4 ?? "error")
         cardNum.isHidden = false
         cardType.isHidden = false
+        editButton.isHidden = false
     }
         
             
@@ -118,8 +133,12 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
     
     func clearCart() {
         cartItems = CartViewModel.sharedCart.paymentCompleted()
-        dollar.text? = "$0.00"
-    }
+        tableView.reloadData()
+        var total = 0.00
+         for item in cartItems {
+             total += item.unitPrice
+         }
+        dollar.text? = "$" + DecimalFormatter.converToDoubleString(theDouble: total)    }
     
         
 }
@@ -139,15 +158,18 @@ extension OrderViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderCell
         let cartItem = self.cartItems[indexPath.item]
         cell.name?.text = cartItem.name
-        cell.price?.text = "$" + String(cartItem.price)
+        cell.price?.text = "$" + DecimalFormatter.converToDoubleString(theDouble: cartItem.unitPrice)
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.cartItems = CartViewModel.sharedCart.removeFromCart(id: self.cartItems[indexPath.item].id)
-            tableView.deleteRows(at: [indexPath], with: .fade)
             print("delete")
+            var index = indexPath.item
+            self.cartItems = CartViewModel.sharedCart.removeFromCart(id: self.cartItems[indexPath.item].itemId)
+            self.cartItems.remove(at: index)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.clearCart()
         }
     }
         

@@ -40,8 +40,9 @@ class APIClient: NSObject {
     
     func createPaymentIntent(amount: Int, currency: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
         let url = baseURL.appendingPathComponent("payment")
-        print(url)
-        Alamofire.request(url, method: .post)
+        var parameters = [String:Any]()
+        parameters["cartId"] = "Fake0"
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
                   .validate(statusCode: 200..<300)
                   .responseString { response in
                     switch response.result {
@@ -56,12 +57,13 @@ class APIClient: NSObject {
         }
     }
     
-    func completePayment(cartId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
+    func completePayment(cartId: String, cookId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
         let url = baseURL.appendingPathComponent("payment/complete")
+        print("completing payment for cook", cookId)
         var parameters = [String:Any]()
         parameters["orderId"] = "null"
         parameters["eaterId"] = "Fake0"
-        parameters["cookId"] = "Fake1"
+        parameters["cookId"] = cookId
         parameters["datetime"] = nil
         parameters["pickUpName"] = "Phil"
         parameters["readyTime"] = nil
@@ -73,6 +75,7 @@ class APIClient: NSObject {
                   .responseString { response in
                     switch response.result {
                         case .success:
+                            print("successful checkout")
                             completionHandler(response, nil)
                             break
                         case .failure(let error):
@@ -162,8 +165,87 @@ class APIClient: NSObject {
             }
     }
     
-    func postReview() {
-        
+    func addToCart(cartId: String, itemId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("cart/add")
+        var parameters = [String:Any]()
+        parameters["cartId"] = cartId
+        parameters["itemId"] = itemId
+        Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseString{ response in
+                switch response.result {
+                case .success:
+                    completionHandler(response, nil)
+                    break
+                case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+            }
+    }
+    
+    func removeFromCart(cartId: String, itemId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("cart/remove")
+        var parameters = [String:Any]()
+        parameters["cartId"] = cartId
+        parameters["itemId"] = itemId
+        Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseString{ response in
+                switch response.result {
+                case .success:
+                    completionHandler(response, nil)
+                    break
+                case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+            }
+    }
+    
+    func postReview(orderId: String, rating: Double, text: String, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
+            let url = baseURL.appendingPathComponent("review")
+            var parameters = [String:Any]()
+            parameters["orderId"] = orderId
+            parameters["textBody"] = text
+            parameters["rating"] = rating
+            parameters["reviewId"] = "Fake0101"
+            parameters["cookId"] = "Fake1"
+            parameters["eaterId"] = "Fake0"
+
+         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+             .validate(statusCode: 200..<300)
+             .responseString{ response in
+                 switch response.result {
+                 case .success:
+                     completionHandler(response, nil)
+                     break
+                 case .failure(let error):
+                     print(error)
+                     completionHandler(nil, error)
+                     break
+                 }
+             }
+    }
+    
+    func getReview(orderId: String, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("review/orderId/" + orderId)
+        Alamofire.request(url, method: .get)
+              .validate(statusCode: 200..<300)
+              .responseString{ response in
+                  switch response.result {
+                  case .success:
+                      print(response)
+                      completionHandler(response, nil)
+                      break
+                  case .failure(let error):
+                      print(error)
+                      completionHandler(nil, error)
+                      break
+                  }
+              }
     }
     
     

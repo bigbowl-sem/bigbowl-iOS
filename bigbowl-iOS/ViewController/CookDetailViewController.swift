@@ -21,8 +21,10 @@ class MenuCell: UITableViewCell {
 class Item: Codable {
     var cuisine: String?
     var name: String?
+    var itemId: String?
     var description: String?
     var unitPrice: Double
+    var cookId: String?
 }
 
 
@@ -39,9 +41,9 @@ class CookDetailViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.cookName.text = self.cook?.displayName
-        self.rating.text = "Rating: " + String(round(self.cook!.rating * 4.0)/4.0)
+        self.rating.text = "Rating: " + DecimalFormatter.converToDoubleString(theDouble: self.cook!.rating)
         
-        APIClient.sharedClient.getMenu(menuId: self.cook!.menuId, completionHandler: { response, error in
+        APIClient.sharedClient.getMenu(menuId: self.cook!.cookId, completionHandler: { response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
@@ -67,7 +69,7 @@ extension CookDetailViewController: UITableViewDataSource {
         
         let item = self.items[indexPath.item]
         cell.meal?.text = item.name
-        cell.price?.text = String(round((item.unitPrice * 4.0)/4.0))
+        cell.price?.text = "$" + DecimalFormatter.converToDoubleString(theDouble: item.unitPrice)
         return cell
     }
     

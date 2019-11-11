@@ -16,9 +16,9 @@ class ReviewCell: UITableViewCell {
     @IBOutlet weak var cook: UILabel!
 }
 
-class Review: Codable {
+class Order: Codable {
     var orderId: String
-    var reviewId: String
+    var cookDisplayName: String
 }
 
 class PersonalAccountViewController: UIViewController {
@@ -26,7 +26,7 @@ class PersonalAccountViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    var reviews: [Review] = []
+    var orders: [Order] = []
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -36,7 +36,8 @@ class PersonalAccountViewController: UIViewController {
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
-                    self.reviews = try decoder.decode([Review].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                    self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                    print("orders ", self.orders)
                     self.tableView.reloadData()
                 } catch let parsingError {
                     print("Error", parsingError)
@@ -52,16 +53,15 @@ class PersonalAccountViewController: UIViewController {
 
 extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.reviews.count
+        self.orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
         
-        // let item = self.items[indexPath.item]
-        cell.cook?.text = "Brad Pitt"
-        cell.rating?.text = "5/5 rating"
-        cell.price?.text = "$5.99"
+        let item = self.orders[indexPath.item]
+        cell.cook?.text = item.cookDisplayName
+        cell.rating?.text = "Not yet rated"
         return cell
     }
     
@@ -73,6 +73,7 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let viewController = storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController {
+            viewController.order = self.orders[indexPath.item]
             navigationController?.pushViewController(viewController, animated: true)
         }
     }
