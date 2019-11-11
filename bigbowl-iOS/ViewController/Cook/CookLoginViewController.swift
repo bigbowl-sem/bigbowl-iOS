@@ -73,8 +73,7 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
                                  vc.modalPresentationStyle = .fullScreen
                                  self.present(vc, animated: true, completion: nil)
                              }
-                         }else
-                         {
+                         } else {
                                       // Display alert message
                             self.displayMyAlertMessage(userMessage: "Please verify the password entered");
                                       return;
@@ -104,41 +103,35 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
        let userMobile = userMobileTextField.text;
        let defaultValue = false;
        
-    
        // Check for empty fields
-    if (userEmail?.isEmpty ?? defaultValue || userPassword?.isEmpty ?? defaultValue || userRepeatPassword?.isEmpty ?? defaultValue )
-       {
+        if (userEmail?.isEmpty ?? defaultValue || userPassword?.isEmpty ?? defaultValue || userRepeatPassword?.isEmpty ?? defaultValue ) {
            // Display alert message
-        displayMyAlertMessage(userMessage: "Email and password are required");
+            displayMyAlertMessage(userMessage: "Email and password are required");
            return;
        }
        
        //Check if passwords match
-       if(userPassword != userRepeatPassword)
-       {
-          // Display an alert message
-        displayMyAlertMessage(userMessage: "Passwords do not match");
-           return;
+       if(userPassword != userRepeatPassword) {
+            // Display an alert message
+            displayMyAlertMessage(userMessage: "Passwords do not match");
+            return;
        }
      
        // Store data. Will be replaced with API call later
-    APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: false, isCook: true){ response, error in
-        if let response = response {
-            do {
-                //here dataResponse received from a network request
-                let decoder = JSONDecoder()
-                let accounts = try decoder.decode([CurrentUser].self, from: response.data!) //Decode JSON Response Data
-                 for account in accounts {
-                                      
-                    print(account.accountId)
-                                       
-                                   }
-                
-            
-            } catch let parsingError {
-                print("Error", parsingError)
+        APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: false, isCook: true){ response, error in
+            print("error", error)
+            if let response = response {
+                do {
+                    //here dataResponse received from a network request
+                    let decoder = JSONDecoder()
+                    let account = try decoder.decode(CurrentUser.self, from: response.data!) //Decode JSON Response Data
+                    print("setting current user")
+                    CurrentUser.setSharedCurrentUser(user: account)
+                    
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
             }
-        }
     }
      
 

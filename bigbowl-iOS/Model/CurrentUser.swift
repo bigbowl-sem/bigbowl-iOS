@@ -23,6 +23,7 @@ class CurrentUser: Codable {
     static var sharedCurrentUser = CurrentUser()
     
     static func setSharedCurrentUser(user: CurrentUser) {
+        print("====== creating new shared user!!!!!")
         CurrentUser.sharedCurrentUser = user
     }
     

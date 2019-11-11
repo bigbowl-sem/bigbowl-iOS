@@ -29,7 +29,7 @@ class CookPersonalViewController: UIViewController {
         self.rating.text = ""
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        APIClient.sharedClient.getCookOrders(userId: CurrentUser.sharedCurrentUser.cookId!){ response, error in
+        APIClient.sharedClient.getCookOrders(userId: CurrentUser.sharedCurrentUser.cookId ?? ""){ response, error in
             if let response = response {
                     do {
                         let decoder = JSONDecoder()

@@ -59,7 +59,6 @@ class APIClient: NSObject {
     
     func completePayment(cartId: String, cookId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void)  {
         let url = baseURL.appendingPathComponent("payment/complete")
-        print("completing payment for cook", cookId)
         var parameters = [String:Any]()
         parameters["orderId"] = "null"
         parameters["eaterId"] = cartId
@@ -128,7 +127,6 @@ class APIClient: NSObject {
     
     func getEaterOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
         let url = baseURL.appendingPathComponent("order/eaterId/" + userId)
-        print(url)
         AF.request(url, method: .get)
             .validate(statusCode: 200..<300)
             .responseString{ response in
@@ -147,7 +145,6 @@ class APIClient: NSObject {
     
     func getCookOrders(userId: String, completionHandler: @escaping (DataResponse<String>?, Error?) -> Void) {
            let url = baseURL.appendingPathComponent("order/cookId/" + userId)
-           print(url)
            AF.request(url, method: .get)
                .validate(statusCode: 200..<300)
                .responseString{ response in
@@ -297,8 +294,11 @@ class APIClient: NSObject {
               
               if let data = data {
                   do {
-                      let json = try JSONSerialization.jsonObject(with: data, options: [])
-                      print(json)
+//                      let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        let decoder = JSONDecoder()
+                        let account = try decoder.decode(CurrentUser.self, from: data) //Decode JSON Response Data
+                        print(account)
+                        CurrentUser.setSharedCurrentUser(user: account)
                   } catch {
                       print(error)
                   }
@@ -374,6 +374,24 @@ class APIClient: NSObject {
                          break
                      }
              }
+    }
+    
+    func confirmOrderPickup(cookId: String, orderId: String, completionHandler: @escaping(DataResponse<String>?, Error?) -> Void) {
+        let url = baseURL.appendingPathComponent("/cookId/" + cookId + "/confirm/" + orderId)
+        AF.request(url, method: .post)
+            .validate(statusCode: 200..<300)
+            .responseString { response in
+                switch response.result {
+                    case .success:
+                        print(response)
+                    completionHandler(response, nil)
+                    break
+                    case .failure(let error):
+                    print(error)
+                    completionHandler(nil, error)
+                    break
+                }
+        }
     }
       
     

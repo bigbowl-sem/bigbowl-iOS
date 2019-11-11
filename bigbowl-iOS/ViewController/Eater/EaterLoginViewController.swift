@@ -138,13 +138,8 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
                 do {
                     //here dataResponse received from a network request
                     let decoder = JSONDecoder()
-                    let accounts = try decoder.decode([CurrentUser].self, from: response.data!) //Decode JSON Response Data
-                     for account in accounts {
-                                          
-                        print(account.accountId)
-                                           
-                                       }
-                    
+                    let account = try decoder.decode(CurrentUser.self, from: response.data!) //Decode JSON Response Data
+                    CurrentUser.setSharedCurrentUser(user: account)
                 
                 } catch let parsingError {
                     print("Error", parsingError)

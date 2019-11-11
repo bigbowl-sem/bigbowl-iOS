@@ -20,6 +20,7 @@ class MenuItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     let cuisineOptions = [String](arrayLiteral: "None", "Italian", "Thai", "Chinese", "Mexican", "American")
     let quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10]
+    var menuController: CookViewController?
     
     override func viewDidLoad() {
            let pickerView = UIPickerView()
@@ -29,21 +30,19 @@ class MenuItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        print("adding to menu")
         APIClient.sharedClient.postNewMenuItem(menuId: CurrentUser.sharedCurrentUser.cookId!, name: itemName.text!, description: "It's some tasty food.", quantity: Int(quantity.text!) ?? 0, unitPrice: Double(price.text!) as! Double, cuisine: cuisine.text!) { response, error in
             
-//            if let response = response {
-//                    do {
-//                        let decoder = JSONDecoder()
-//                        var items = try decoder.decode([Item].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
-//                    } catch let parsingError {
-//                        print("Error", parsingError)
-//                    }
-//                }
-//            })
-            
-            self.dismiss(animated: true, completion: nil)
-        }
+            if let response = response {
+                    do {
+                        let decoder = JSONDecoder()
+                        MenuViewModel.menuItems = try decoder.decode([Item].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                    } catch let parsingError {
+                        print("Error", parsingError)
+                    }
+                }
+                self.menuController?.viewWillAppear(true)
+                self.dismiss(animated: true, completion: nil)
+            }
     }
     
     @IBAction func cancelTapped(_ sender: Any) {

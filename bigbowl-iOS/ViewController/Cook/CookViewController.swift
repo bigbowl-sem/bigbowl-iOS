@@ -25,14 +25,13 @@ class CookViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        APIClient.sharedClient.getMenu(menuId: CurrentUser.sharedCurrentUser.cookId ?? "Fake0"){ response, error in
+        APIClient.sharedClient.getMenu(menuId: CurrentUser.sharedCurrentUser.cookId ?? ""){ response, error in
             if let response = response {
                     do {
-                        print("=======cookId ", CurrentUser.sharedCurrentUser.cookId ?? "Fake0")
                         //here dataResponse received from a network request
                         let decoder = JSONDecoder()
-                        self.menuItems = try decoder.decode([Item].self, from: response.data!) //Decode JSON Response Data
-                        print("menu items!", self.menuItems)
+                        MenuViewModel.menuItems = try decoder.decode([Item].self, from: response.data!) //Decode JSON Response Data
+                        self.menuItems = MenuViewModel.menuItems
                     } catch let parsingError {
                         print("Error", parsingError)
                     }
@@ -41,6 +40,12 @@ class CookViewController: UIViewController {
             }
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        menuItems = MenuViewModel.menuItems
+        tableView.reloadData()
+    }
+    
 }
 
 extension CookViewController: UITableViewDataSource, UITableViewDelegate {
@@ -60,6 +65,13 @@ extension CookViewController: UITableViewDataSource, UITableViewDelegate {
         return "Current Menu"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem" {
+            let lastVC = segue.destination as! MenuItemDetailViewController
+            lastVC.menuController = self
+        }
+        
+    }
     
     
 }

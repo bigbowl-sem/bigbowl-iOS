@@ -41,8 +41,6 @@ class PersonalAccountViewController: UIViewController {
                 do {
                     let decoder = JSONDecoder()
                     self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
-                    print(CurrentUser.sharedCurrentUser.eaterId!)
-                    print("orders ", self.orders)
                     self.tableView.reloadData()
                 } catch let parsingError {
                     print("Error", parsingError)
@@ -51,7 +49,21 @@ class PersonalAccountViewController: UIViewController {
         }
         self.name.text = CurrentUser.sharedCurrentUser.firstName
         self.ratingLabel.text = ""
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIClient.sharedClient.getEaterOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
+               if let response = response {
+                   do {
+                       let decoder = JSONDecoder()
+                       self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                       self.tableView.reloadData()
+                   } catch let parsingError {
+                       print("Error", parsingError)
+                   }
+               }
+           }
+        self.tableView.reloadData()
     }
     
     
