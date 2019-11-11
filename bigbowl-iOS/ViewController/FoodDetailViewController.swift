@@ -26,7 +26,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     @IBAction func toCartTapped(_ sender: Any) {
-        CartViewModel.sharedCart.addToCart(id: item!.itemId!, name: item!.name!, price: item!.unitPrice)
+        CartViewModel.sharedCart.addToCart(id: item!.itemId!, name: item!.name!, cookId: item!.cookId!, price: item!.unitPrice)
     }
 
 }

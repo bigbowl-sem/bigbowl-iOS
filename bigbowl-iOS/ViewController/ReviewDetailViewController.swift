@@ -29,18 +29,20 @@ class ReviewDetailViewController: UIViewController {
     
     @IBOutlet weak var cookName: UILabel!
     var order: Order?
-    var reviews: [Review]?
+    var reviews: [Review] = []
     
     override func viewDidLoad() {
-        APIClient.sharedClient.getReview(orderId: order?.orderId ?? "Fake0"){ response, error in
+        APIClient.sharedClient.getReview(orderId: order!.orderId){ response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
                     self.reviews = try decoder.decode([Review].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
-                    print("reviews ", self.reviews ?? [])
-                    var theReview = self.reviews?[0]
-                    self.cosmosStars.rating = theReview?.rating ?? 3.0
-                    self.reviewText.text = theReview?.textBody ?? "Enter your review here..."
+                    if self.reviews.count > 0 {
+                        var theReview = self.reviews[0] ?? Review()
+                       self.cosmosStars.rating = theReview.rating ?? 3.0
+                       self.reviewText.text = theReview.textBody ?? "Enter your review here..."
+                    }
+           
                     
                     
                 } catch let parsingError {
@@ -54,7 +56,7 @@ class ReviewDetailViewController: UIViewController {
     @IBAction func submitTapped(_ sender: Any) {
         var rating = cosmosStars.rating
         var text = reviewText.text!
-        APIClient.sharedClient.postReview(orderId: order?.orderId ?? "Fake0", rating: rating, text: text) { response, error in
+        APIClient.sharedClient.postReview(orderId: order!.orderId, rating: rating, text: text) { response, error in
             print("REVIEWED! ", response)
         }
     }

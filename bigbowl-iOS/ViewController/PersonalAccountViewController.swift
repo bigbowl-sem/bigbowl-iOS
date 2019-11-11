@@ -73,6 +73,7 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let viewController = storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController {
+            viewController.order = self.orders[indexPath.item]
             navigationController?.pushViewController(viewController, animated: true)
         }
     }

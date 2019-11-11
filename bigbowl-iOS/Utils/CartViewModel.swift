@@ -14,17 +14,17 @@ class CartViewModel {
     
     static let sharedCart = CartViewModel()
     
-    func addToCart(id: String, name: String, price: Double) -> [CartItem] {
+    func addToCart(id: String, name: String, cookId: String, price: Double) -> [CartItem] {
         print("adding to cart")
-        guard var item = CartItem(["id": id, "name": name, "price": price]) else { return CartViewModel.cartItems }
+        var item = CartItem(name: name, id: id, unitPrice: price, cookId: cookId)
         CartViewModel.cartItems.append(item)
-        cartToServer()
+        addItemToCartServer(itemId: item.itemId)
         return CartViewModel.cartItems
     }
     
     func isInCart(id:String) -> Bool {
         for item in CartViewModel.cartItems {
-               if item.id == id {
+               if item.cartId == id {
                    return true
                }
            }
@@ -33,12 +33,12 @@ class CartViewModel {
     
     func removeFromCart(id: String) -> [CartItem] {
         for (index, item) in CartViewModel.cartItems.enumerated() {
-             if item.id == id {
+             if item.cartId == id {
                 CartViewModel.cartItems.remove(at: index)
-                break
+                return CartViewModel.cartItems
              }
          }
-        cartToServer()
+        removeItemFromCartServer(itemId: id)
         return CartViewModel.cartItems
     }
     
@@ -58,6 +58,32 @@ class CartViewModel {
                 } catch let parsingError {
                     print("Error", parsingError)
                 }
+            }
+        }
+    }
+    
+    func addItemToCartServer(itemId: String) {
+        APIClient.sharedClient.addToCart(cartId: "Fake0", itemId: itemId) { response, error in
+            if let response = response {
+                   do {
+                       //here dataResponse received from a network request
+                      print("Response", response)
+                   } catch let parsingError {
+                       print("Error", parsingError)
+                   }
+            }
+        }
+    }
+    
+    func removeItemFromCartServer(itemId: String) {
+        APIClient.sharedClient.removeFromCart(cartId: "Fake0", itemId: itemId) { response, error in
+            if let response = response {
+                   do {
+                       //here dataResponse received from a network request
+                      print("Response", response)
+                   } catch let parsingError {
+                       print("Error", parsingError)
+                   }
             }
         }
     }

@@ -24,6 +24,7 @@ class Item: Codable {
     var itemId: String?
     var description: String?
     var unitPrice: Double
+    var cookId: String?
 }
 
 
@@ -42,7 +43,7 @@ class CookDetailViewController: UIViewController {
         self.cookName.text = self.cook?.displayName
         self.rating.text = "Rating: " + DecimalFormatter.converToDoubleString(theDouble: self.cook!.rating)
         
-        APIClient.sharedClient.getMenu(menuId: self.cook!.menuId, completionHandler: { response, error in
+        APIClient.sharedClient.getMenu(menuId: self.cook!.cookId, completionHandler: { response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()

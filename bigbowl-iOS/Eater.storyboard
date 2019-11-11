@@ -40,12 +40,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFG-qF-TVa">
-                                                    <rect key="frame" x="312" y="41" width="39" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-LS-J5Y">
                                                     <rect key="frame" x="114" y="41" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -56,13 +50,10 @@
                                             <constraints>
                                                 <constraint firstItem="rPo-DE-f6U" firstAttribute="top" secondItem="wHZ-5a-XXg" secondAttribute="top" constant="4" id="2pR-RF-oy5"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4e1-LS-J5Y" secondAttribute="bottom" constant="30" id="3mg-zm-CrK"/>
-                                                <constraint firstItem="oFG-qF-TVa" firstAttribute="top" secondItem="wHZ-5a-XXg" secondAttribute="topMargin" constant="30" id="GyA-X5-SfR"/>
                                                 <constraint firstItem="rPo-DE-f6U" firstAttribute="leading" secondItem="wHZ-5a-XXg" secondAttribute="leading" constant="12" id="LgQ-B4-Fiw"/>
                                                 <constraint firstItem="4e1-LS-J5Y" firstAttribute="leading" secondItem="rPo-DE-f6U" secondAttribute="trailing" constant="8" id="NJt-Ur-Coz"/>
                                                 <constraint firstAttribute="bottom" secondItem="rPo-DE-f6U" secondAttribute="bottom" constant="5.5" id="TYh-mq-bs6"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="oFG-qF-TVa" secondAttribute="bottom" constant="30" id="YBx-Te-Vx1"/>
                                                 <constraint firstItem="4e1-LS-J5Y" firstAttribute="top" secondItem="jNA-XA-Afk" secondAttribute="bottom" constant="9" id="fMg-9O-8QB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oFG-qF-TVa" secondAttribute="trailing" constant="3" id="gtN-iI-EJG"/>
                                                 <constraint firstItem="4e1-LS-J5Y" firstAttribute="top" secondItem="jNA-XA-Afk" secondAttribute="bottom" constant="9" id="m5K-0f-xMR"/>
                                                 <constraint firstItem="jNA-XA-Afk" firstAttribute="top" secondItem="wHZ-5a-XXg" secondAttribute="topMargin" id="qmu-kb-sLn"/>
                                                 <constraint firstItem="jNA-XA-Afk" firstAttribute="leading" secondItem="rPo-DE-f6U" secondAttribute="trailing" constant="8" id="wWA-ij-pXy"/>
@@ -71,7 +62,6 @@
                                         <connections>
                                             <outlet property="cook" destination="jNA-XA-Afk" id="eJd-XX-EVI"/>
                                             <outlet property="cookImage" destination="rPo-DE-f6U" id="TPl-lj-sTi"/>
-                                            <outlet property="price" destination="oFG-qF-TVa" id="8lD-tF-36I"/>
                                             <outlet property="rating" destination="4e1-LS-J5Y" id="n41-25-sDb"/>
                                         </connections>
                                     </tableViewCell>

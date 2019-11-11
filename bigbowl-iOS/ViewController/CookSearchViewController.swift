@@ -74,6 +74,9 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 self.addPullUpController(animated: true)
             }
         }
+        APIClient.sharedClient.postCart(cartId: "Fake100", cartItems: [], totalPrice: 0.00) { response, error in
+            
+        }
     }
     
    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
