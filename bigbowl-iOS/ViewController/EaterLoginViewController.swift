@@ -10,6 +10,15 @@
 import UIKit
 import GoogleSignIn
 
+struct Account: Decodable{
+    var accountId: String
+    var firstName: String
+    var password:String
+    var cook: Bool
+    var eater : Bool
+    
+}
+
 class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet weak var lblTitle:UILabel!
     @IBOutlet weak var btnGoogleSignIn:UIButton!
@@ -22,7 +31,7 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
     
     @IBOutlet weak var userEmailLoginTextField: UITextField!
     @IBOutlet weak var userPasswordLoginTextField: UITextField!
-    
+    //var accounts = [Account]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,41 +45,72 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         
         let userLoginEmail = userEmailLoginTextField.text;
         let userLoginPassword = userPasswordLoginTextField.text;
+        var   userEmailStored = "";
+        var   userPasswordStored = "";
+//        var userEmailStored: String;
+    //    var userPasswordStored: String;
         
-        let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
-        let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
         
-        if(userEmailStored == userLoginEmail)
-        {
-            if(userPasswordStored == userLoginPassword)
-            {
-                // Login is successfull
-                UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
-                UserDefaults.standard.synchronize();
-                
-                //self.dismiss(animated: true, completion:nil);
-                let userLoggedIn = UserDefaults.standard.string(forKey: "isUserLoggedIn");
-                if((userLoggedIn) != nil)
-                {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "Eater") as! UIViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    present(vc, animated: true, completion: nil)
+        APIClient.sharedClient.getAccount(accountId: userLoginEmail!){ response, error in
+            print("I am here")
+            if let response = response {
+                do {
+                    
+                    let result = try JSONDecoder().decode(Account.self, from: response.data!)
+                    print("accountId", result.accountId)
+                     userEmailStored = result.accountId;
+                    userPasswordStored = result.password;
+                    
+
+                // let userEmailStored = UserDefaults.standard.string(forKey: "userEmail");
+                 //let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword");
+                 print (userEmailStored)
+                 print(userPasswordStored)
+                 if(userEmailStored == userLoginEmail)
+                 {
+                     if(userPasswordStored == userLoginPassword)
+                     {
+                         // Login is successfull
+                         UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
+                         UserDefaults.standard.synchronize();
+                         
+                         //self.dismiss(animated: true, completion:nil);
+                         let userLoggedIn = UserDefaults.standard.string(forKey: "isUserLoggedIn");
+                         if((userLoggedIn) != nil)
+                         {
+                            /* let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                             let vc = storyboard.instantiateViewController(withIdentifier: "Eater") as! UIViewController
+                             vc.modalPresentationStyle = .fullScreen
+                             present(vc, animated: true, completion: nil)*/
+                             
+                             let storyboard = UIStoryboard(name: "Eater", bundle: nil)
+                            let vc = storyboard.instantiateInitialViewController()!
+                             vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                         }
+                     }else
+                     {
+                                  // Display alert message
+                        self.displayMyAlertMessage(userMessage: "Please verify the password entered");
+                                  return;
+                              }
+                     
+                 }else
+                 
+                 {
+                                  // Display alert message
+                    self.displayMyAlertMessage(userMessage: "Email id does not exist in the system");
+                                  return;
+                              }
+         
                 }
-            }else
-            {
-                         // Display alert message
-        displayMyAlertMessage(userMessage: "Please verify the password entered");
-                         return;
-                     }
+           catch let parsingError {
+                    print("Error", parsingError)
+                }
             
-        }else
+            }
+        }
         
-        {
-                         // Display alert message
-        displayMyAlertMessage(userMessage: "Email id does not exist in the system");
-                         return;
-                     }
     }
     
     //Registration of users
@@ -101,6 +141,28 @@ class EaterLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
            }
          
            // Store data. Will be replaced with API call later
+        APIClient.sharedClient.postAccount(accountId: userEmail!, email: userEmail!, password: userPassword!, firstName: userName!, lastName: userName!, phone: userMobile!, isEater: true, isCook: false){ response, error in
+            print("I am here")
+            if let response = response {
+                do {
+                    //here dataResponse received from a network request
+                    let decoder = JSONDecoder()
+                    let accounts = try decoder.decode([Account].self, from: response.data!) //Decode JSON Response Data
+                     for account in accounts {
+                                          
+                        print(account.accountId)
+                                           
+                                       }
+                    
+                
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            }
+        }
+         
+        
+        
         
         UserDefaults.standard.set(userEmail,forKey:"userEmail");
         UserDefaults.standard.set(userPassword,forKey:"userPassword");
