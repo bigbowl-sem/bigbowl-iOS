@@ -86,6 +86,7 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
         if item.eaterConfirmed {
             rated = "Rated"
         }
+        
         cell.rating?.text = rated
         return cell
     }

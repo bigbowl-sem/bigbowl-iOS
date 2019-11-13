@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import PullUpController
 
-
 class FoodDetailCell: UITableViewCell {
     
     @IBOutlet weak var foodImage: UIImageView!
@@ -33,6 +32,7 @@ class CookListPullUpController: PullUpController {
     var picker = UIPickerView()
     var toolBar = UIToolbar()
     var searchViewModel = SearchViewModel()
+    var cookSearchViewController = CookSearchViewController()
 
     var initialState: InitialState = .contracted
     var cooks: [Cook] = []
@@ -65,6 +65,13 @@ class CookListPullUpController: PullUpController {
         
     }
     
+    func update() {
+        print("in list pull up controller,", self.cooks)
+        self.tableView.reloadData()
+        self.cookSearchViewController.cooks = self.cooks
+        self.cookSearchViewController.update()
+    }
+    
     override func loadView() {
         super.loadView()
         tableView.reloadData()
@@ -76,6 +83,7 @@ class CookListPullUpController: PullUpController {
     
     @IBAction func filterTapped(_ sender: Any) {
         if let viewController = storyboard?.instantiateViewController(identifier: "FilterViewController") as? FilterViewController {
+            viewController.cookListPullUpController = self
                    navigationController?.pushViewController(viewController, animated: true)
             }
     }
@@ -155,7 +163,15 @@ extension CookListPullUpController: UITableViewDataSource {
             let item = self.cooks[indexPath.item]
             cell.cook?.text = item.displayName
             cell.stars?.text = "Rating: " + DecimalFormatter.converToDoubleString(theDouble: item.rating)
-    //        cell.foodImage?.image = UIImage(named: "flame")
+            if item.imgurUrl != nil || item.imgurUrl != "" {
+                print("item imgur", item.imgurUrl)
+                APIClient.sharedClient.getImgurPhoto(from: URL(string: item.imgurUrl)!){ image, something, error in
+                  DispatchQueue.main.async {
+                      cell.foodImage.image = image
+                  }
+              }
+          }
+          
             return cell
         }
     

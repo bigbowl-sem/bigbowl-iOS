@@ -103,7 +103,7 @@
                         <viewLayoutGuide key="safeArea" id="7tx-LB-A2e"/>
                     </view>
                     <navigationItem key="navigationItem" id="U8E-if-HR1" customClass="CookPer">
-                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" id="jc4-N9-5d1">
+                        <barButtonItem key="rightBarButtonItem" image="escape" catalog="system" id="jc4-N9-5d1">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="settingsTapped:" destination="SgD-IQ-ljN" id="iTJ-Gj-c7b"/>
@@ -111,6 +111,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cookImage" destination="CBX-2L-WKb" id="SlD-iZ-LA9"/>
                         <outlet property="name" destination="b6F-3N-gp8" id="5L2-Fo-DxU"/>
                         <outlet property="rating" destination="k3e-KR-Rjq" id="Y9h-7Z-VVQ"/>
                         <outlet property="tableView" destination="cCX-pw-haK" id="IEq-5N-Bdh"/>
@@ -206,7 +207,6 @@
         <!--Menu-->
         <scene sceneID="NY0-w6-UkJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aQV-Cd-FsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="ayU-5u-wgq" customClass="CookViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMe-hI-iiJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -225,24 +225,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r32-g4-J75">
-                                                    <rect key="frame" x="16" y="11" width="97" height="86"/>
+                                                    <rect key="frame" x="0.0" y="11" width="113" height="115"/>
                                                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="97" id="STl-6N-BAr"/>
-                                                        <constraint firstAttribute="height" constant="85.5" id="f4g-38-ENX"/>
+                                                        <constraint firstAttribute="height" constant="114.5" id="7zy-d4-zBf"/>
+                                                        <constraint firstAttribute="width" constant="113" id="a1U-Od-U2v"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$7.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN7-X9-1jm">
                                                     <rect key="frame" x="274" y="12" width="114" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pad Thai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-o8-p3E">
-                                                    <rect key="frame" x="119" y="12" width="116" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -253,11 +246,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pad Thai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-o8-p3E">
+                                                    <rect key="frame" x="121" y="5" width="116" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="r32-g4-J75" firstAttribute="top" secondItem="Is5-UK-as0" secondAttribute="topMargin" constant="1" id="DW4-mD-eBE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="r32-g4-J75" secondAttribute="bottom" constant="28.5" id="Wpx-qS-9Oy"/>
-                                                <constraint firstItem="r32-g4-J75" firstAttribute="leading" secondItem="Is5-UK-as0" secondAttribute="leadingMargin" id="t8X-x2-9eY"/>
+                                                <constraint firstAttribute="bottom" secondItem="r32-g4-J75" secondAttribute="bottom" constant="10.5" id="Zjv-Fq-fMZ"/>
+                                                <constraint firstItem="r32-g4-J75" firstAttribute="leading" secondItem="Is5-UK-as0" secondAttribute="leading" id="wG0-38-Xhk"/>
+                                                <constraint firstItem="r32-g4-J75" firstAttribute="top" secondItem="Is5-UK-as0" secondAttribute="top" constant="12" id="y8F-Q1-6At"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -287,6 +287,7 @@
                         <outlet property="tableView" destination="Nbv-qg-wjg" id="3k5-M5-xT0"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQV-Cd-FsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="595.6521739130435" y="-926.11607142857133"/>
         </scene>
@@ -479,8 +480,8 @@
     <resources>
         <image name="cube" catalog="system" width="64" height="62"/>
         <image name="cube.box" catalog="system" width="64" height="62"/>
+        <image name="escape" catalog="system" width="64" height="60"/>
         <image name="flame" catalog="system" width="54" height="64"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="list.dash" catalog="system" width="64" height="42"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>

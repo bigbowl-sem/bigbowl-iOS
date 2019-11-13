@@ -10,22 +10,17 @@ import Foundation
 import UIKit
 import Cosmos
 
-class OrderItemCell: UITableViewCell {
-    @IBOutlet weak var item: UILabel!
-    
-    @IBOutlet weak var price: UILabel!
-}
 
 class Review: Codable {
     var rating: Double?
     var textBody: String?
+    var cookDisplayName: String?
 }
 
 class ReviewDetailViewController: UIViewController {
     
     @IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var cosmosStars: CosmosView!
-    @IBOutlet weak var orderDetails: UITableView!
     
     @IBOutlet weak var cookName: UILabel!
     var order: Order?
@@ -41,6 +36,7 @@ class ReviewDetailViewController: UIViewController {
                         var theReview = self.reviews[0] ?? Review()
                        self.cosmosStars.rating = theReview.rating ?? 3.0
                        self.reviewText.text = theReview.textBody ?? "Enter your review here..."
+                        self.cookName.text = theReview.cookDisplayName
                     }
                     
                 } catch let parsingError {
@@ -59,17 +55,4 @@ class ReviewDetailViewController: UIViewController {
             print("REVIEWED! ", response)
         }
     }
-}
-
-
-extension ReviewDetailViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return OrderItemCell()
-    }
-    
-    
 }

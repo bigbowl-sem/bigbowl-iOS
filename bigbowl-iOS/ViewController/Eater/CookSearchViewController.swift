@@ -40,8 +40,9 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.startUpdatingLocation()
             if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+                let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate ?? CLLocationCoordinate2D(latitude: 37.7874221, longitude: -122.409635), latitudinalMeters: 2000, longitudinalMeters: 2000)
                  mapView.setRegion(coordinateRegion, animated: true)
+                 mapView.showsUserLocation = true
                  searchViewModel.getCooks(location: locationManager.location!) { cooks in
                      for cook in cooks {
                          let annotation = EventAnnotation()
@@ -88,9 +89,24 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let pullUpController = makeListViewIfNeeded()
         pullUpController.cooks = self.cooks
         _ = pullUpController.view // call pullUpController.viewDidLoad()
+        pullUpController.cookSearchViewController = self
         addPullUpController(pullUpController,
                             initialStickyPointOffset: pullUpController.initialPointOffset,
                             animated: animated)
+    }
+    
+    func update() {
+        print("===== UPDATING map =======")
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        for cook in cooks {
+            let annotation = EventAnnotation()
+            annotation.theCook = cook
+            annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
+            annotation.title = cook.displayName
+            annotation.subtitle = "Good food here!"
+            self.mapView.addAnnotation(annotation)
+        }
     }
     
     

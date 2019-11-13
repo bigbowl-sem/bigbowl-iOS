@@ -38,6 +38,7 @@ class CookViewController: UIViewController {
                 self.tableView.reloadData()
                 }
             }
+    
         super.viewDidLoad()
     }
     
@@ -58,6 +59,14 @@ extension CookViewController: UITableViewDataSource, UITableViewDelegate {
        let menuItem = self.menuItems[indexPath.item]
        cell.name?.text = menuItem.name
        cell.price?.text = "$" + DecimalFormatter.converToDoubleString(theDouble: menuItem.unitPrice)
+        if menuItem.imgurUrl != nil {
+            APIClient.sharedClient.getImgurPhoto(from: URL(string: menuItem.imgurUrl!)!){ image, something, error in
+                DispatchQueue.main.async {
+                    cell.foodImage.image = image
+                }
+            }
+        }
+        
        return cell
     }
     

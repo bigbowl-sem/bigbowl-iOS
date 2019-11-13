@@ -23,6 +23,14 @@ class FoodDetailViewController: UIViewController {
         foodTitle.text = item?.name
         priceTitle.text = "$" + DecimalFormatter.converToDoubleString(theDouble: item!.unitPrice)
         cookName.text = item?.description
+        if item?.imgurUrl != nil {
+            APIClient.sharedClient.getImgurPhoto(from: URL(string: self.item!.imgurUrl!)!){ image, something, error in
+                DispatchQueue.main.async {
+                    self.foodImage.image = image
+                }
+            }
+        }
+        
     }
     
     @IBAction func toCartTapped(_ sender: Any) {

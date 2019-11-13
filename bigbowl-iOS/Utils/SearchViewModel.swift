@@ -14,6 +14,7 @@ struct Cook: Codable{
     var displayName: String
     var rating: Double
     var menuId: String
+    var imgurUrl: String
     var lat: Double
     var lng: Double
 }
@@ -39,11 +40,21 @@ class SearchViewModel {
                 }
             }
         }
-        print(self.cooks)
     }
     
-    func filterCooks() {
-        
+    func filterCooks(location: CLLocation, minRating: Double, cuisine: String, completionHandler: @escaping ([Cook]) -> Void) {
+        APIClient.sharedClient.getCooksFiltered(coordinates: location, minRating: minRating, cuisine: cuisine){ response, error in
+            if let response = response {
+                do {
+                    //here dataResponse received from a network request
+                    let decoder = JSONDecoder()
+                    self.cooks = try decoder.decode([Cook].self, from: response.data!) //Decode JSON Response Data
+                    completionHandler(self.cooks)
+                } catch let parsingError {
+                    print("Error", parsingError)
+                }
+            }
+        }
     }
     
     

@@ -25,6 +25,7 @@ class Item: Codable {
     var description: String?
     var unitPrice: Double
     var cookId: String?
+    var imgurUrl: String?
 }
 
 
@@ -32,6 +33,7 @@ class CookDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cookName: UILabel!
+    @IBOutlet weak var cookImage: UIImageView!
     var cook: Cook?
     @IBOutlet weak var rating: UILabel!
     var items: [Item] = []
@@ -54,6 +56,12 @@ class CookDetailViewController: UIViewController {
                 }
             }
         })
+        
+        APIClient.sharedClient.getImgurPhoto(from: URL(string: self.cook!.imgurUrl)!){ image, something, error in
+             DispatchQueue.main.async {
+                 self.cookImage.image = image
+             }
+        }
 
     }
     
@@ -70,6 +78,13 @@ extension CookDetailViewController: UITableViewDataSource {
         let item = self.items[indexPath.item]
         cell.meal?.text = item.name
         cell.price?.text = "$" + DecimalFormatter.converToDoubleString(theDouble: item.unitPrice)
+        if item.imgurUrl != nil {
+            APIClient.sharedClient.getImgurPhoto(from: URL(string: item.imgurUrl!)!){ image, something, error in
+                DispatchQueue.main.async {
+                    cell.foodImage.image = image
+                }
+            }
+        }
         return cell
     }
     
