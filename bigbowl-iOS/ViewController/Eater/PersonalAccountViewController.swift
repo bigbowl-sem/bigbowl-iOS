@@ -19,12 +19,16 @@ class ReviewCell: UITableViewCell {
 class Order: Codable {
     var orderId: String
     var cookDisplayName: String
+    var pickUpName: String
+    var eaterConfirmed: Bool
+    var cookConfirmed: Bool
 }
 
 class PersonalAccountViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     var orders: [Order] = []
     
@@ -32,19 +36,36 @@ class PersonalAccountViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        APIClient.sharedClient.getOrders(userId: "Fake0") { response, error in
+        APIClient.sharedClient.getEaterOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
             if let response = response {
                 do {
                     let decoder = JSONDecoder()
                     self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
-                    print("orders ", self.orders)
                     self.tableView.reloadData()
                 } catch let parsingError {
                     print("Error", parsingError)
                 }
             }
         }
+        self.name.text = CurrentUser.sharedCurrentUser.firstName
+        self.ratingLabel.text = ""
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIClient.sharedClient.getEaterOrders(userId: CurrentUser.sharedCurrentUser.eaterId ?? "") { response, error in
+               if let response = response {
+                   do {
+                       let decoder = JSONDecoder()
+                       self.orders = try decoder.decode([Order].self, from: response.data!) //Decode JSON Response Data/Decode JSON Response Data
+                       self.tableView.reloadData()
+                   } catch let parsingError {
+                       print("Error", parsingError)
+                   }
+               }
+           }
+        self.tableView.reloadData()
+    }
+    
     
     @IBAction func settingsTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
@@ -61,7 +82,11 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
         
         let item = self.orders[indexPath.item]
         cell.cook?.text = item.cookDisplayName
-        cell.rating?.text = "Not yet rated"
+        var rated = "Not Rated"
+        if item.eaterConfirmed {
+            rated = "Rated"
+        }
+        cell.rating?.text = rated
         return cell
     }
     

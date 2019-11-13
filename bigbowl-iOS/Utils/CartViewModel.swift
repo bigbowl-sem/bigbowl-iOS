@@ -88,36 +88,4 @@ class CartViewModel {
         }
     }
     
-//    func fetchData() -> [CartItem] {
-//        
-//        if let list = defaults.value(forKey: "encodedList") as? [[String: Any]] {
-//            self.cartItems = []
-//            for item in list {
-//                guard let cartItem = CartItem(item) else { return self.cartItems }
-//                self.cartItems.append(cartItem)
-//            }
-//        }
-//        return self.cartItems
-//    }
-//    
-//    func reset() {
-//        self.cartItems = []
-//        self.saveData()
-//    }
-//    
-//    
-//    //MARK: Save data to user defaults
-//    
-//    func saveData() {
-//        
-//        var encodedList = [[String: Any]]()
-//        
-//        for item in cartItems {
-//            guard let unwrappedItem = item.toPlist() else { return }
-//
-//            encodedList.append(unwrappedItem)
-//        }
-//        defaults.set(encodedList, forKey: "encodedList")
-//    }
-    
 }

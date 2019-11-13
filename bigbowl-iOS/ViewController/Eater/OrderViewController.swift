@@ -72,7 +72,7 @@ class OrderViewController: UIViewController, STPAddCardViewControllerDelegate {
                    break
                case .succeeded:
                 print("purchasing foor from ", self.cartItems[0].cookId )
-                APIClient.sharedClient.completePayment(cartId: "FAKE100", cookId: self.cartItems[0].cookId, completionHandler: { response, error  in
+                APIClient.sharedClient.completePayment(cartId: CurrentUser.sharedCurrentUser.eaterId!, cookId: self.cartItems[0].cookId, completionHandler: { response, error  in
                         print(response)
                         let alertController = UIAlertController(title: "Purchase successful", message: "Get ready for yummy food!", preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
