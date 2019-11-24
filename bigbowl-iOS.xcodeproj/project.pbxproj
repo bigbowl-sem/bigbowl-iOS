@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A15F0E72378FF7800722CDC /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15F0E62378FF7800722CDC /* DecimalFormatter.swift */; };
 		4A1E3F482360466A00B15DF4 /* CookListPullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */; };
+		4A37F7EA2389F8E9000AFD9A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37F7E92389F8E9000AFD9A /* RegisterViewController.swift */; };
 		4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE6662355A1BF006D54FB /* APIClient.swift */; };
 		4A3CE6682355A28D006D54FB /* Pods-bigbowl-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0550AFF75802236C567A6E02 /* Pods-bigbowl-iOS.debug.xcconfig */; };
 		4A3CE6692355A290006D54FB /* Pods-bigbowl-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */; };
@@ -26,9 +27,10 @@
 		4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */; };
 		4AA91B442362624600F09E4B /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */; };
 		4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4923641F8800F09E4B /* OrderViewController.swift */; };
-		4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */; };
+		4AA91B522366AE0700F09E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B512366AE0700F09E4B /* LoginViewController.swift */; };
 		4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */; };
 		4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AA91B572366AEDA00F09E4B /* credentials.plist */; };
+		4AB27C0F238A19E7009FF0EF /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB27C0E238A19E6009FF0EF /* food.png */; };
 		4ABC3591237953FC00379DA5 /* CookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC3590237953FC00379DA5 /* CookViewController.swift */; };
 		4ABC35932379540600379DA5 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC35922379540600379DA5 /* OrdersViewController.swift */; };
 		4ABC35952379542B00379DA5 /* CookPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC35942379542B00379DA5 /* CookPersonalViewController.swift */; };
@@ -36,7 +38,7 @@
 		4ABC3599237958D100379DA5 /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC3598237958D100379DA5 /* MenuItemDetailViewController.swift */; };
 		4ABC359B23795A6600379DA5 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC359A23795A6600379DA5 /* CurrentUser.swift */; };
 		4ABC359D23796E6600379DA5 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC359C23796E6600379DA5 /* MenuViewModel.swift */; };
-		4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA0319235F97FC00F94AEF /* LoginViewController.swift */; };
+		4AEA031A235F97FC00F94AEF /* ChooseRoleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEA0319235F97FC00F94AEF /* ChooseRoleController.swift */; };
 		4AEA0322235F9D7F00F94AEF /* Cook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEA0321235F9D7F00F94AEF /* Cook.storyboard */; };
 		4AF3F9DE2377644D00847D4B /* CookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */; };
 		4AF3F9E02377756E00847D4B /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */; };
@@ -50,8 +52,9 @@
 		1CCD7159423873CE175469C2 /* Pods-bigbowl-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigbowl-iOS.release.xcconfig"; path = "Target Support Files/Pods-bigbowl-iOS/Pods-bigbowl-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		4A15F0E62378FF7800722CDC /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		4A1E3F472360466A00B15DF4 /* CookListPullUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookListPullUpController.swift; sourceTree = "<group>"; };
+		4A37F7E92389F8E9000AFD9A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4A3CE6662355A1BF006D54FB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bigbowl-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A51085F23551A6B009B70E7 /* BigBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A51086223551A6B009B70E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A51086423551A6B009B70E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A51086B23551A6B009B70E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,9 +70,10 @@
 		4AA91B4123624F2600F09E4B /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
 		4AA91B4923641F8800F09E4B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
-		4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterLoginViewController.swift; sourceTree = "<group>"; };
+		4AA91B512366AE0700F09E4B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLoginViewController.swift; sourceTree = "<group>"; };
 		4AA91B572366AEDA00F09E4B /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+		4AB27C0E238A19E6009FF0EF /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = food.png; path = ../../../../Downloads/food.png; sourceTree = "<group>"; };
 		4ABC3590237953FC00379DA5 /* CookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookViewController.swift; sourceTree = "<group>"; };
 		4ABC35922379540600379DA5 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		4ABC35942379542B00379DA5 /* CookPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookPersonalViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +81,7 @@
 		4ABC3598237958D100379DA5 /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 		4ABC359A23795A6600379DA5 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		4ABC359C23796E6600379DA5 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewModel.swift; path = "bigbowl-iOS/Model/MenuViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		4AEA0319235F97FC00F94AEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4AEA0319235F97FC00F94AEF /* ChooseRoleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleController.swift; sourceTree = "<group>"; };
 		4AEA0321235F9D7F00F94AEF /* Cook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cook.storyboard; sourceTree = "<group>"; };
 		4AF3F9DD2377644D00847D4B /* CookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookSearchViewController.swift; sourceTree = "<group>"; };
 		4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +128,10 @@
 			children = (
 				4ABC358F2379533C00379DA5 /* Eater */,
 				4ABC358E2379532D00379DA5 /* Cook */,
-				4AEA0319235F97FC00F94AEF /* LoginViewController.swift */,
+				4AEA0319235F97FC00F94AEF /* ChooseRoleController.swift */,
+				4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */,
+				4AA91B512366AE0700F09E4B /* LoginViewController.swift */,
+				4A37F7E92389F8E9000AFD9A /* RegisterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -152,7 +159,7 @@
 		4A51086023551A6B009B70E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */,
+				4A51085F23551A6B009B70E7 /* BigBowl.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 				4A51086D23551A6D009B70E7 /* Assets.xcassets */,
 				4A51086F23551A6D009B70E7 /* LaunchScreen.storyboard */,
 				4A51087223551A6D009B70E7 /* Info.plist */,
+				4AB27C0E238A19E6009FF0EF /* food.png */,
 				4AEA0321235F9D7F00F94AEF /* Cook.storyboard */,
 				4A595F27235FAB04000F7A7C /* Eater.storyboard */,
 			);
@@ -179,7 +187,6 @@
 		4ABC358E2379532D00379DA5 /* Cook */ = {
 			isa = PBXGroup;
 			children = (
-				4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */,
 				4ABC3590237953FC00379DA5 /* CookViewController.swift */,
 				4ABC35922379540600379DA5 /* OrdersViewController.swift */,
 				4ABC35942379542B00379DA5 /* CookPersonalViewController.swift */,
@@ -200,7 +207,6 @@
 				4AF3F9DF2377756E00847D4B /* ReviewDetailViewController.swift */,
 				4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */,
 				4AA91B4923641F8800F09E4B /* OrderViewController.swift */,
-				4AA91B512366AE0700F09E4B /* EaterLoginViewController.swift */,
 			);
 			path = Eater;
 			sourceTree = "<group>";
@@ -242,7 +248,7 @@
 			);
 			name = "bigbowl-iOS";
 			productName = "bigbowl-iOS";
-			productReference = 4A51085F23551A6B009B70E7 /* bigbowl-iOS.app */;
+			productReference = 4A51085F23551A6B009B70E7 /* BigBowl.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A595F28235FAB04000F7A7C /* Eater.storyboard in Resources */,
+				4AB27C0F238A19E7009FF0EF /* food.png in Resources */,
 				4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */,
 				4A3CE6682355A28D006D54FB /* Pods-bigbowl-iOS.debug.xcconfig in Resources */,
 				4A51087123551A6D009B70E7 /* LaunchScreen.storyboard in Resources */,
@@ -370,19 +377,20 @@
 				4A15F0E72378FF7800722CDC /* DecimalFormatter.swift in Sources */,
 				4A92842C2373820C009A1886 /* CartViewModel.swift in Sources */,
 				4A51086323551A6B009B70E7 /* AppDelegate.swift in Sources */,
-				4AA91B522366AE0700F09E4B /* EaterLoginViewController.swift in Sources */,
+				4AA91B522366AE0700F09E4B /* LoginViewController.swift in Sources */,
 				4A51086523551A6B009B70E7 /* SceneDelegate.swift in Sources */,
 				4A92842A2372AC55009A1886 /* SearchViewModel.swift in Sources */,
 				4ABC359B23795A6600379DA5 /* CurrentUser.swift in Sources */,
 				4ABC35952379542B00379DA5 /* CookPersonalViewController.swift in Sources */,
 				4AA91B442362624600F09E4B /* PersonalAccountViewController.swift in Sources */,
-				4AEA031A235F97FC00F94AEF /* LoginViewController.swift in Sources */,
+				4AEA031A235F97FC00F94AEF /* ChooseRoleController.swift in Sources */,
 				4AF3F9DE2377644D00847D4B /* CookSearchViewController.swift in Sources */,
 				4A92842E237391B1009A1886 /* FilterViewController.swift in Sources */,
 				4A1E3F482360466A00B15DF4 /* CookListPullUpController.swift in Sources */,
 				4ABC3591237953FC00379DA5 /* CookViewController.swift in Sources */,
 				4AF3F9E423777A9100847D4B /* Review.swift in Sources */,
 				4ABC3599237958D100379DA5 /* MenuItemDetailViewController.swift in Sources */,
+				4A37F7EA2389F8E9000AFD9A /* RegisterViewController.swift in Sources */,
 				4A3CE6672355A1BF006D54FB /* APIClient.swift in Sources */,
 				4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */,
 				4AA91B4023624F1900F09E4B /* CookDetailViewController.swift in Sources */,
@@ -532,13 +540,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TB62S2459;
 				INFOPLIST_FILE = "bigbowl-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "sem.bigbowl-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sem.bigbowl.iOS;
+				PRODUCT_NAME = BigBowl;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -550,13 +559,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TB62S2459;
 				INFOPLIST_FILE = "bigbowl-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "sem.bigbowl-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sem.bigbowl.iOS;
+				PRODUCT_NAME = BigBowl;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

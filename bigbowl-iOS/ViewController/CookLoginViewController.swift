@@ -25,8 +25,7 @@ class CookLoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        btnGoogleSignIn.addTarget(self, action: #selector(signinUserUsingGoogle(_ :)), for: .touchUpInside)
-        
+        btnGoogleSignIn.addTarget(self, action: #selector(signinUserUsingGoogle(_ :)), for: .touchUpInside)        
     }
     
 
