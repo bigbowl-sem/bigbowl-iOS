@@ -122,18 +122,35 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
         if let error = error {
             print("We have error sign in user == \(error.localizedDescription)")
         } else {
             if let gmailUser = user {
+                /* lblTitle.text = "Signed in as \(gmailUser.profile.email!)"
+                 btnGoogleSignIn.setTitle("Sign Out", for: .normal)*/
                 btnGoogleSignIn.setTitle("Sign Out", for: .normal)
-                
-                let storyboard = UIStoryboard(name: "Eater", bundle: nil)
-                let vc = storyboard.instantiateInitialViewController() as! UIViewController
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true, completion: nil)
-                
+                let loggedInUser = gmailUser.profile.email
+                let userPassword = ""
+                let userFirstName = gmailUser.profile.givenName
+                let userLastName = gmailUser.profile.familyName
+                let userMobile = ""
+                //  completion: { (status, paymentIntent, error)
+                APIClient.sharedClient.getAccount(accountId: loggedInUser!){response, error in
+                    
+                    if let error = error {
+                        do {
+                            APIClient.sharedClient.postAccount(accountId: loggedInUser!, email: loggedInUser!, password: userPassword, firstName: userFirstName!, lastName: userLastName!, phone: userMobile, isEater: !self.isCook, isCook: self.isCook){ response, error in
+                            }
+                        }
+                        catch let parsingError{
+                            print("Error", parsingError)
+                        }
+                    }
+                }
+                goToApp()
             }
+            
         }
     }
     

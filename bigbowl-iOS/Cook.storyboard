@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rVb-jb-HSA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Cook Personal View Controller-->
         <scene sceneID="Yjb-te-fSK">
             <objects>
-                <viewController id="SgD-IQ-ljN" customClass="CookPersonalViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SgD-IQ-ljN" customClass="CookPersonalViewController" customModule="BigBowl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wW3-Yp-ZLi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="20" y="262" width="374" height="527"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EaterReviewCell" rowHeight="103" id="W2c-th-crZ" customClass="EaterReviewCell" customModule="bigbowl_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EaterReviewCell" rowHeight="103" id="W2c-th-crZ" customClass="EaterReviewCell" customModule="BigBowl" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W2c-th-crZ" id="sPr-1b-gd6">
@@ -144,21 +144,20 @@
         <!--Orders-->
         <scene sceneID="EtA-0H-mwM">
             <objects>
-                <viewController id="ZFu-Hr-xWJ" customClass="OrdersViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZFu-Hr-xWJ" customClass="OrdersViewController" customModule="BigBowl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="26G-fQ-bfD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j0K-ej-MSQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j0K-ej-MSQ">
                                 <rect key="frame" x="20" y="112" width="374" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveOrderDetailCell" id="TNx-dY-faa" customClass="ActiveOrderDetailCell" customModule="bigbowl_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActiveOrderDetailCell" id="TNx-dY-faa" customClass="ActiveOrderDetailCell" customModule="BigBowl" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TNx-dY-faa" id="DTY-4Q-tyw">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PickUpName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ES-sT-P0a">
@@ -178,6 +177,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j0K-ej-MSQ" firstAttribute="leading" secondItem="cIc-ua-6Fh" secondAttribute="leading" constant="20" id="2GX-pB-qL3"/>
+                            <constraint firstItem="j0K-ej-MSQ" firstAttribute="top" secondItem="cIc-ua-6Fh" secondAttribute="top" constant="24" id="J0a-f3-BB7"/>
+                            <constraint firstItem="cIc-ua-6Fh" firstAttribute="trailing" secondItem="j0K-ej-MSQ" secondAttribute="trailing" constant="20" id="Muh-Uq-b5y"/>
+                            <constraint firstItem="cIc-ua-6Fh" firstAttribute="bottom" secondItem="j0K-ej-MSQ" secondAttribute="bottom" constant="28" id="r31-YJ-jtg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cIc-ua-6Fh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="Duo-dZ-cKO"/>
@@ -192,7 +197,7 @@
         <!--Order Detail View Controller-->
         <scene sceneID="CX9-a9-1JU">
             <objects>
-                <viewController id="f2q-qa-q0t" customClass="OrderDetailViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f2q-qa-q0t" customClass="OrderDetailViewController" customModule="BigBowl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g6Y-vc-CoQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,17 +212,16 @@
         <!--Menu-->
         <scene sceneID="NY0-w6-UkJ">
             <objects>
-                <viewController id="ayU-5u-wgq" customClass="CookViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ayU-5u-wgq" customClass="CookViewController" customModule="BigBowl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oMe-hI-iiJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-qg-wjg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-qg-wjg">
                                 <rect key="frame" x="20" y="111" width="374" height="683"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CookMenuCell" rowHeight="137" id="oH1-1f-06K" customClass="CookMenuCell" customModule="bigbowl_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CookMenuCell" rowHeight="137" id="oH1-1f-06K" customClass="CookMenuCell" customModule="BigBowl" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oH1-1f-06K" id="Is5-UK-as0">
@@ -271,6 +275,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nbv-qg-wjg" firstAttribute="top" secondItem="i5e-E0-sX9" secondAttribute="top" constant="23" id="2eo-G4-HIy"/>
+                            <constraint firstItem="i5e-E0-sX9" firstAttribute="bottom" secondItem="Nbv-qg-wjg" secondAttribute="bottom" constant="19" id="7hj-h1-UTH"/>
+                            <constraint firstItem="Nbv-qg-wjg" firstAttribute="leading" secondItem="i5e-E0-sX9" secondAttribute="leading" constant="20" id="bl1-Ml-K2y"/>
+                            <constraint firstItem="i5e-E0-sX9" firstAttribute="trailing" secondItem="Nbv-qg-wjg" secondAttribute="trailing" constant="20" id="msn-ET-o3O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="i5e-E0-sX9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="SMW-Z7-MdZ">
@@ -351,7 +361,7 @@
         <!--Menu Item Detail View Controller-->
         <scene sceneID="KlN-p0-UBc">
             <objects>
-                <viewController storyboardIdentifier="MenuItemDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yoe-5H-f43" customClass="MenuItemDetailViewController" customModule="bigbowl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuItemDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yoe-5H-f43" customClass="MenuItemDetailViewController" customModule="BigBowl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oRs-Vg-tAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,9 +370,10 @@
                                 <rect key="frame" x="20" y="80" width="374" height="419"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CPN-fG-rk9">
-                                        <rect key="frame" x="21" y="262" width="85" height="34"/>
+                                        <rect key="frame" x="23" y="262" width="83" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="au6-0V-jxn"/>
+                                            <constraint firstAttribute="width" constant="83" id="aUE-DW-ByO"/>
+                                            <constraint firstAttribute="height" constant="34" id="slt-Gf-IVR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -401,7 +412,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgO-CL-st8">
-                                        <rect key="frame" x="158" y="353" width="62" height="30"/>
+                                        <rect key="frame" x="123" y="347" width="128" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="BTx-gC-sc1"/>
+                                            <constraint firstAttribute="height" constant="30" id="Fwt-yB-n8b"/>
+                                        </constraints>
                                         <state key="normal" title="Add Item"/>
                                         <connections>
                                             <action selector="addButtonTapped:" destination="Yoe-5H-f43" eventType="touchUpInside" id="mvu-ap-BMw"/>
@@ -410,34 +425,28 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="top" secondItem="Bqd-E9-8T0" secondAttribute="bottom" constant="57" id="2xu-aJ-ZhW"/>
+                                    <constraint firstItem="CPN-fG-rk9" firstAttribute="top" secondItem="04K-Qf-JKL" secondAttribute="bottom" constant="8" id="0Im-j4-byF"/>
+                                    <constraint firstItem="sgO-CL-st8" firstAttribute="top" secondItem="tKd-XE-GWe" secondAttribute="bottom" constant="51" id="4SE-QR-kKR"/>
+                                    <constraint firstItem="tKd-XE-GWe" firstAttribute="leading" secondItem="CPN-fG-rk9" secondAttribute="trailing" constant="8" id="5uy-Oj-bGf"/>
                                     <constraint firstItem="CcD-TD-kPL" firstAttribute="top" secondItem="cSB-dW-9Tj" secondAttribute="top" constant="8" id="63S-Va-p6T"/>
-                                    <constraint firstAttribute="trailing" secondItem="sgO-CL-st8" secondAttribute="trailing" constant="154" id="6Du-DR-sQt"/>
                                     <constraint firstAttribute="trailing" secondItem="CcD-TD-kPL" secondAttribute="trailing" constant="44" id="6pC-Dc-NTi"/>
-                                    <constraint firstAttribute="bottom" secondItem="sgO-CL-st8" secondAttribute="bottom" constant="36" id="7bs-fa-ScW"/>
-                                    <constraint firstItem="tKd-XE-GWe" firstAttribute="leading" secondItem="CPN-fG-rk9" secondAttribute="trailing" constant="8" id="8Kt-QQ-h8g"/>
-                                    <constraint firstItem="CPN-fG-rk9" firstAttribute="top" secondItem="04K-Qf-JKL" secondAttribute="bottom" constant="8" id="9AL-xp-3dr"/>
+                                    <constraint firstItem="sgO-CL-st8" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="123" id="Bwk-lX-7bk"/>
                                     <constraint firstItem="04K-Qf-JKL" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="21" id="Deu-h7-4u5"/>
                                     <constraint firstAttribute="trailing" secondItem="Bqd-E9-8T0" secondAttribute="trailing" constant="17" id="EAs-wJ-HGP"/>
                                     <constraint firstItem="CcD-TD-kPL" firstAttribute="top" secondItem="cSB-dW-9Tj" secondAttribute="top" constant="8" id="GzS-ps-kv2"/>
                                     <constraint firstAttribute="trailing" secondItem="CcD-TD-kPL" secondAttribute="trailing" constant="44" id="I8x-YA-EAg"/>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="top" secondItem="tKd-XE-GWe" secondAttribute="bottom" constant="57" id="Pud-dl-GfK"/>
+                                    <constraint firstItem="CPN-fG-rk9" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="23" id="JGr-Yr-Huh"/>
+                                    <constraint firstAttribute="trailing" secondItem="sgO-CL-st8" secondAttribute="trailing" constant="123" id="QlO-jM-3qQ"/>
                                     <constraint firstItem="Bqd-E9-8T0" firstAttribute="leading" secondItem="tKd-XE-GWe" secondAttribute="trailing" constant="8" id="XXq-BP-tgd"/>
-                                    <constraint firstItem="tKd-XE-GWe" firstAttribute="leading" secondItem="CPN-fG-rk9" secondAttribute="trailing" constant="8" id="Xoh-cT-o7a"/>
                                     <constraint firstAttribute="trailing" secondItem="04K-Qf-JKL" secondAttribute="trailing" constant="17" id="bYi-ak-jOB"/>
-                                    <constraint firstItem="CPN-fG-rk9" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="21" id="bme-dw-0Ns"/>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="158" id="bnG-1t-FFv"/>
+                                    <constraint firstItem="04K-Qf-JKL" firstAttribute="top" secondItem="CcD-TD-kPL" secondAttribute="bottom" constant="46" id="c0u-Jv-oPG"/>
+                                    <constraint firstAttribute="bottom" secondItem="CPN-fG-rk9" secondAttribute="bottom" constant="123" id="cF5-Zd-woP"/>
+                                    <constraint firstAttribute="bottom" secondItem="sgO-CL-st8" secondAttribute="bottom" constant="42" id="ciY-i3-7ga"/>
                                     <constraint firstItem="Bqd-E9-8T0" firstAttribute="leading" secondItem="tKd-XE-GWe" secondAttribute="trailing" constant="8" id="f6T-l5-bRd"/>
-                                    <constraint firstAttribute="trailing" secondItem="sgO-CL-st8" secondAttribute="trailing" constant="154" id="fnX-7r-1nP"/>
                                     <constraint firstItem="CcD-TD-kPL" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="45" id="jJt-JO-XYZ"/>
                                     <constraint firstItem="CcD-TD-kPL" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="45" id="lFp-4A-Cpf"/>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="leading" secondItem="cSB-dW-9Tj" secondAttribute="leading" constant="158" id="mTf-eO-6SR"/>
-                                    <constraint firstAttribute="bottom" secondItem="CPN-fG-rk9" secondAttribute="bottom" constant="123" id="orS-nd-biX"/>
-                                    <constraint firstAttribute="bottom" secondItem="sgO-CL-st8" secondAttribute="bottom" constant="36" id="sth-nh-Jrj"/>
                                     <constraint firstItem="tKd-XE-GWe" firstAttribute="top" secondItem="04K-Qf-JKL" secondAttribute="bottom" constant="8" id="tsR-Er-eoL"/>
                                     <constraint firstItem="Bqd-E9-8T0" firstAttribute="top" secondItem="04K-Qf-JKL" secondAttribute="bottom" constant="8" id="vb4-JU-yb3"/>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="top" secondItem="tKd-XE-GWe" secondAttribute="bottom" constant="57" id="xma-eC-60h"/>
-                                    <constraint firstItem="sgO-CL-st8" firstAttribute="top" secondItem="tKd-XE-GWe" secondAttribute="bottom" constant="57" id="z1F-6V-pl1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZ1-QR-yEO">
@@ -474,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dos-hM-Co5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="-1601"/>
+            <point key="canvasLocation" x="1931.8840579710147" y="-1601.1160714285713"/>
         </scene>
     </scenes>
     <resources>

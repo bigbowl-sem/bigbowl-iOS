@@ -28,7 +28,6 @@
 		4AA91B442362624600F09E4B /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */; };
 		4AA91B4A23641F8800F09E4B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B4923641F8800F09E4B /* OrderViewController.swift */; };
 		4AA91B522366AE0700F09E4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B512366AE0700F09E4B /* LoginViewController.swift */; };
-		4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */; };
 		4AA91B582366AEDA00F09E4B /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AA91B572366AEDA00F09E4B /* credentials.plist */; };
 		4AB27C0F238A19E7009FF0EF /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB27C0E238A19E6009FF0EF /* food.png */; };
 		4ABC3591237953FC00379DA5 /* CookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC3590237953FC00379DA5 /* CookViewController.swift */; };
@@ -71,7 +70,6 @@
 		4AA91B432362624600F09E4B /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
 		4AA91B4923641F8800F09E4B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		4AA91B512366AE0700F09E4B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookLoginViewController.swift; sourceTree = "<group>"; };
 		4AA91B572366AEDA00F09E4B /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		4AB27C0E238A19E6009FF0EF /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = food.png; path = ../../../../Downloads/food.png; sourceTree = "<group>"; };
 		4ABC3590237953FC00379DA5 /* CookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				4ABC358F2379533C00379DA5 /* Eater */,
 				4ABC358E2379532D00379DA5 /* Cook */,
 				4AEA0319235F97FC00F94AEF /* ChooseRoleController.swift */,
-				4AA91B552366AE5500F09E4B /* CookLoginViewController.swift */,
 				4AA91B512366AE0700F09E4B /* LoginViewController.swift */,
 				4A37F7E92389F8E9000AFD9A /* RegisterViewController.swift */,
 			);
@@ -369,7 +366,6 @@
 			files = (
 				4ABC35972379588400379DA5 /* OrderDetailViewController.swift in Sources */,
 				4AF3F9E2237775D200847D4B /* PersonalAccountViewModel.swift in Sources */,
-				4AA91B562366AE5500F09E4B /* CookLoginViewController.swift in Sources */,
 				4ABC359D23796E6600379DA5 /* MenuViewModel.swift in Sources */,
 				4AA91B4223624F2600F09E4B /* FoodDetailViewController.swift in Sources */,
 				4ABC35932379540600379DA5 /* OrdersViewController.swift in Sources */,

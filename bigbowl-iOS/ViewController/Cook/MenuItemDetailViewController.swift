@@ -56,10 +56,9 @@ class MenuItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func addButtonTapped(_ sender: Any) {
         print("======= ADDING =======")
-        
         APIClient.sharedClient.postImageImgur(image: self.imageView.image!){ response, error in
                 DispatchQueue.main.async {
-                    APIClient.sharedClient.postNewMenuItem(menuId: CurrentUser.sharedCurrentUser.cookId!, name: self.itemName.text!, description: "This is some good stuff!", quantity: 10, unitPrice: Double(self.price.text!) as! Double, cuisine: self.cuisine.text!, imgurUrl: response.data?.link!){ response, error in
+                    APIClient.sharedClient.postNewMenuItem(menuId: CurrentUser.sharedCurrentUser.cookId!, name: self.itemName.text!, description: "This is some good stuff!", quantity: Int(self.quantity.text!) as! Int, unitPrice: Double(self.price.text!) as! Double, cuisine: self.cuisine.text!, imgurUrl: response.data?.link!){ response, error in
                             if let response = response {
                                 do {
                                      let decoder = JSONDecoder()
