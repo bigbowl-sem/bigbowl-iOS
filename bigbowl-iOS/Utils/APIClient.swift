@@ -91,7 +91,7 @@ class APIClient: NSObject {
         var parameters = [String:Any]()
         parameters["lng"] = coordinates.coordinate.longitude
         parameters["lat"] = coordinates.coordinate.latitude
-        parameters["radius"] = 1
+        parameters["radius"] = 50
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString))
             .validate(statusCode: 200..<300)
@@ -113,7 +113,7 @@ class APIClient: NSObject {
           var parameters = [String:Any]()
           parameters["lng"] = coordinates.coordinate.longitude
           parameters["lat"] = coordinates.coordinate.latitude
-          parameters["radius"] = 5
+          parameters["radius"] = 50
           parameters["rMin"] = minRating
           parameters["rMax"] = 5.0
           parameters["cuisine"] = cuisine

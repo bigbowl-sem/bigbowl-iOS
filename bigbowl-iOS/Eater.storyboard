@@ -658,20 +658,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OrderCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderCell" id="EWO-oC-ZfM" customClass="OrderCell" customModule="BigBowl" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWO-oC-ZfM" id="NyD-LW-xmV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-ch-NZu">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-lt-uXf">
-                                                    <rect key="frame" x="318" y="12" width="42" height="21.5"/>
+                                                    <rect key="frame" x="318" y="12" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -846,8 +846,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Food Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbC-WF-paF">
-                                <rect key="frame" x="20" y="318" width="354" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbC-WF-paF">
+                                <rect key="frame" x="20" y="318" width="136" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="is7-lM-zYd"/>
                                 </constraints>
@@ -868,6 +868,8 @@
                                 <rect key="frame" x="0.0" y="90" width="414" height="220"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="9Yb-eq-HOt"/>
+                                    <constraint firstAttribute="width" constant="414" id="M7B-oo-cOa"/>
                                     <constraint firstAttribute="height" constant="220" id="O9T-IZ-fpK"/>
                                 </constraints>
                             </imageView>
@@ -881,7 +883,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE3-Ts-gsK">
-                                <rect key="frame" x="139" y="453" width="137" height="79"/>
+                                <rect key="frame" x="139" y="453" width="137" height="30"/>
                                 <state key="normal" title="Add to Cart"/>
                                 <connections>
                                     <action selector="toCartTapped:" destination="Ddl-3W-AYd" eventType="touchUpInside" id="IZx-yW-W9F"/>
@@ -891,6 +893,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IbC-WF-paF" firstAttribute="top" secondItem="cIS-7Y-RaK" secondAttribute="bottom" constant="8" id="0ob-eS-38C"/>
+                            <constraint firstItem="IbC-WF-paF" firstAttribute="top" secondItem="cIS-7Y-RaK" secondAttribute="bottom" constant="8" id="2pA-eV-fnA"/>
                             <constraint firstItem="P3b-Hj-pNk" firstAttribute="top" secondItem="hES-fh-Beb" secondAttribute="bottom" constant="8" id="6B7-1n-1n4"/>
                             <constraint firstItem="cIS-7Y-RaK" firstAttribute="top" secondItem="J37-UH-GUi" secondAttribute="top" constant="46" id="6yz-aS-KCm"/>
                             <constraint firstItem="hES-fh-Beb" firstAttribute="top" secondItem="IbC-WF-paF" secondAttribute="bottom" constant="8" id="80B-KN-ueK"/>
@@ -906,8 +909,7 @@
                             <constraint firstItem="cIS-7Y-RaK" firstAttribute="leading" secondItem="J37-UH-GUi" secondAttribute="leading" id="gf4-C6-ql8"/>
                             <constraint firstItem="hES-fh-Beb" firstAttribute="leading" secondItem="J37-UH-GUi" secondAttribute="leading" constant="20" id="gz5-xO-Sju"/>
                             <constraint firstItem="P3b-Hj-pNk" firstAttribute="top" secondItem="hES-fh-Beb" secondAttribute="bottom" constant="8" id="hyr-bd-grw"/>
-                            <constraint firstItem="J37-UH-GUi" firstAttribute="bottom" secondItem="P3b-Hj-pNk" secondAttribute="bottom" constant="447" id="nBV-wn-Lm4"/>
-                            <constraint firstItem="J37-UH-GUi" firstAttribute="bottom" secondItem="gE3-Ts-gsK" secondAttribute="bottom" constant="330" id="nwH-T6-J1J"/>
+                            <constraint firstItem="cIS-7Y-RaK" firstAttribute="top" secondItem="J37-UH-GUi" secondAttribute="top" constant="46" id="pRS-Hh-ghd"/>
                             <constraint firstItem="cIS-7Y-RaK" firstAttribute="trailing" secondItem="J37-UH-GUi" secondAttribute="trailing" id="t1l-Em-EM1"/>
                             <constraint firstItem="gE3-Ts-gsK" firstAttribute="leading" secondItem="J37-UH-GUi" secondAttribute="leading" constant="139" id="uHp-bH-3TR"/>
                         </constraints>

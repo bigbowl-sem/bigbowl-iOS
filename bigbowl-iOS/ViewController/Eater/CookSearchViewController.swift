@@ -43,18 +43,7 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate ?? CLLocationCoordinate2D(latitude: 37.7874221, longitude: -122.409635), latitudinalMeters: 2000, longitudinalMeters: 2000)
                  mapView.setRegion(coordinateRegion, animated: true)
                  mapView.showsUserLocation = true
-                 searchViewModel.getCooks(location: locationManager.location!) { cooks in
-                     for cook in cooks {
-                         let annotation = EventAnnotation()
-                         annotation.theCook = cook
-                         annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
-                         annotation.title = cook.displayName
-                         annotation.subtitle = "Good food here!"
-                         self.mapView.addAnnotation(annotation)
-                     }
-                     self.cooks = cooks
-                     self.addPullUpController(animated: true)
-                 }
+                self.populateCooks()
             }
         }
     }
@@ -69,6 +58,21 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 }
             }
         view.isSelected = false
+    }
+    
+    func populateCooks() {
+        searchViewModel.getCooks(location: locationManager.location!) { cooks in
+             for cook in cooks {
+                 let annotation = EventAnnotation()
+                 annotation.theCook = cook
+                 annotation.coordinate = CLLocation(latitude: cook.lat, longitude: cook.lng).coordinate
+                 annotation.title = cook.displayName
+                 annotation.subtitle = "Good food here!"
+                 self.mapView.addAnnotation(annotation)
+             }
+             self.cooks = cooks
+             self.addPullUpController(animated: true)
+         }
     }
     
     private func makeListViewIfNeeded() -> CookListPullUpController {
@@ -118,7 +122,11 @@ class CookSearchViewController: UIViewController, MKMapViewDelegate, CLLocationM
             break
         case .authorizedWhenInUse, .authorizedAlways:
              if CLLocationManager.locationServicesEnabled() {
+                let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate ?? CLLocationCoordinate2D(latitude: 37.7874221, longitude: -122.409635), latitudinalMeters: 2000, longitudinalMeters: 2000)
+                          mapView.setRegion(coordinateRegion, animated: true)
+                          mapView.showsUserLocation = true
                  self.locationManager.startUpdatingLocation()
+                self.populateCooks()
             }
         case .restricted, .denied:
            self.alertLocationAccessNeeded()

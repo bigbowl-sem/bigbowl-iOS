@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Ex: "http://localhost:3000" if you're running the Node server locally,
      or "https://rocketrides.io" to try the app using our hosted version.
      */
-    private let baseURLString: String = "http://11a1c0f5.ngrok.io"
-
+    private let baseURLString: String = "http://ec2-35-163-196-25.us-west-2.compute.amazonaws.com:8080"
+//    private let baseURLString: String = "http://cd90dff2.ngrok.io"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
          GIDSignIn.sharedInstance().clientID = "133967199290-f1fhprptd51g5mjpahcliid9c0is3rqp.apps.googleusercontent.com"
